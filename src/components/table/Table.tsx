@@ -10,12 +10,23 @@ export default function Table() {
     function toggleShown() {
         setCardShown(prevState => !prevState);
     }
+
     return (
         <>
             <div className="table">
                 {/* <Card value="K" suit="Clubs" isShown={cardShown} toggleFunction={toggleShown}/>
                 <Card value="Q" suit="Hearts" isShown={cardShown} toggleFunction={toggleShown}/> */}
-                <CardSlot horizontal={false}/>
+                <div className="board-centre">
+                    <CardSlot horizontal={false}/>
+                    <CardSlot horizontal={false}/>
+                    <CardSlot horizontal={false}/>
+                    <div className="space"></div>
+                    <CardSlot horizontal={false}/>
+                    <div className="space"></div>
+                    <CardSlot horizontal={false}/>
+                </div>
+    
+                {/* TODO: add case switch with all the different table positions, and associated styling for location */}
             </div>
         </>
     )

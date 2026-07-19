@@ -1,8 +1,10 @@
 .card-slot {
     width: 40px;
     height: 60px;
+    margin: 0 1px;
     border-radius: 10px;
-    border: 2px solid black;
+    box-sizing: border-box;
+    border: 1.5px solid black;
 }
 
 .card-slot.rotated {
