@@ -16,7 +16,19 @@ export default function Table() {
         for (let j = 0; j < values.length; j++)
         deck.push({suit: suits[i], value: values[j]})
     }
-    console.log(deck);
+
+    // Fisher-Yates algorithm
+    function shuffleDeck(deck: Card[]) {
+        const shuffledDeck = [...deck]
+          for (let i = shuffledDeck.length - 1; i > 0; i--) {
+            const j = Math.floor(Math.random() * (i + 1));
+            [shuffledDeck[i], shuffledDeck[j]] = [shuffledDeck[j], shuffledDeck[i]];
+        }
+        return shuffledDeck;
+    }
+
+    const newDeck = shuffleDeck(deck)
+    console.log(newDeck);
 
     function toggleShown() {
         setCardShown(prevState => !prevState);
