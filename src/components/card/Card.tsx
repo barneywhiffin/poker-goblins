@@ -1,19 +1,18 @@
 import "./card.css";
-import { HeartIcon } from "@phosphor-icons/react";
+import type { Card } from "../../types/Card";
+import { HeartIcon, DiamondIcon, SpadeIcon, ClubIcon } from "@phosphor-icons/react";
 
-interface CardName {
-    value: string;
-    suit: string
-}
-
-export default function Card({value, suit}: CardName) {
+export default function Card({value, suit}: Card) {
     return (
         <>
             <div className="card">
                 <span>{value} </span>
                 <span>{suit}</span>
             </div>
-            <HeartIcon />
+            <HeartIcon size={20} color="red" weight="fill"/>
+            <DiamondIcon size={20} color="red" weight="fill"/>
+            <SpadeIcon size={20} weight="fill"/>
+            <ClubIcon size={20} weight="fill"/>
         </>
     )
 }
