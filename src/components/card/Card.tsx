@@ -23,10 +23,10 @@ export default function Card(props: Card) {
 
     return (
         <>
-            <button className="card" onClick={props.toggleFunction}>
+            <div className="card" onClick={props.toggleFunction}>
                 {props.isShown && <h4>{props.value} </h4>}
                 {props.isShown && getSuitIcon(props.suit)}
-            </button>
+            </div>
         </>
     )
 }
