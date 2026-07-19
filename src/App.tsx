@@ -6,7 +6,7 @@ function App() {
   return (
     <>
       <p>hello world!</p>
-      <Card value="K" suit="Hearts"/>
+      <Card value="K" suit="Clubs"/>
     </>
   )
 }
