@@ -1,4 +1,4 @@
-import "./style.css";
+import "./card.css";
 import type { Suit, Card } from "../../types/card";
 import { HeartIcon, DiamondIcon, SpadeIcon, ClubIcon } from "@phosphor-icons/react";
 
@@ -24,7 +24,7 @@ export default function Card(props: Card) {
     return (
         <>
             <button className="card" onClick={props.toggleFunction}>
-                {props.isShown && <h2>{props.value} </h2>}
+                {props.isShown && <h4>{props.value} </h4>}
                 {props.isShown && getSuitIcon(props.suit)}
             </button>
         </>

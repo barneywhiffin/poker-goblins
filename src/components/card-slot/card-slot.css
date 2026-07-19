@@ -1,0 +1,11 @@
+.card-slot {
+    width: 40px;
+    height: 60px;
+    border-radius: 10px;
+    border: 2px solid black;
+}
+
+.card-slot.rotated {
+    width: 60px;
+    height: 40px;
+}
