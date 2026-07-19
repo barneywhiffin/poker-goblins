@@ -1,0 +1,10 @@
+.table {
+    margin: 20px auto 0 auto;
+    max-width: 1000px;
+    height: 350px;
+    border-radius: 50px;
+    border: 30px solid rgb(41, 97, 103);
+    background: lightgreen;
+    box-sizing: border-box;
+    text-align: center;
+}

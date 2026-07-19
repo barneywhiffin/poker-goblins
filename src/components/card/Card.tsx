@@ -1,4 +1,4 @@
-import "./card.css";
+import "./style.css";
 import type { Suit, Card } from "../../types/card";
 import { HeartIcon, DiamondIcon, SpadeIcon, ClubIcon } from "@phosphor-icons/react";
 
