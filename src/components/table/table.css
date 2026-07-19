@@ -23,3 +23,10 @@
 .space {
     width: 8px;
 }
+
+@media (prefers-color-scheme: dark) {
+    .table {
+        background: green;
+        border: 20px solid rgb(16, 62, 67);
+    }
+}

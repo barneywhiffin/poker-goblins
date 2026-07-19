@@ -9,9 +9,17 @@
     align-items: center;
     box-sizing: border-box;
     margin: 0 1px;
-    gap: 1px
+    gap: 1px;
 }
 
 /* TODO: add an alternate styling with height and width flipped, */
 /* triggered when prop cardRotated is true or smt */
 /* stored in state i guess..... or not just dependent on table position*/
+
+@media (prefers-color-scheme: dark) {
+    .card {
+        background: black;
+        color: white;
+        border: 2px solid lightblue;
+    }
+}

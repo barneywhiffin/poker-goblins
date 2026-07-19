@@ -4,19 +4,21 @@ import { HeartIcon, DiamondIcon, SpadeIcon, ClubIcon } from "@phosphor-icons/rea
 
 export default function Card(props: Card) {
 
+    const suitIconSize = 17;
+
     function getSuitIcon(suit: Suit) {
         switch(suit) {
             case("Hearts"): {
-                return <HeartIcon size={20} weight="fill" color="red"/>
+                return <HeartIcon size={suitIconSize} weight="fill" color="red"/>
             }
             case("Diamonds"): {
-                return <DiamondIcon size={20} weight="fill" color="red"/>
+                return <DiamondIcon size={suitIconSize} weight="fill" color="red"/>
             }
             case("Spades"): {
-                return <SpadeIcon size={20} weight="fill"/>
+                return <SpadeIcon size={suitIconSize} weight="fill"/>
             }
             case("Clubs"): {
-                return <ClubIcon size={20} weight="fill"/>
+                return <ClubIcon size={suitIconSize} weight="fill"/>
             }
         }
     }
@@ -24,7 +26,7 @@ export default function Card(props: Card) {
     return (
         <>
             <div className="card" onClick={props.toggleFunction}>
-                {props.isShown && <h4>{props.value} </h4>}
+                {props.isShown && <h3 style={{fontSize: "18px"}}>{props.value} </h3>}
                 {props.isShown && getSuitIcon(props.suit)}
             </div>
         </>
