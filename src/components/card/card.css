@@ -7,6 +7,8 @@
     display: inline-flex;
     justify-content: center;
     align-items: center;
+    box-sizing: border-box;
+    margin: 0 1px;
     gap: 1px
 }
 

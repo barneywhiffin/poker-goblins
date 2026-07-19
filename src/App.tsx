@@ -16,7 +16,7 @@ function App() {
 		<>
 
 			<Table deck={deck}/>
-			<button onClick={shuffle}>Shuffle Deck</button>
+			<button onClick={shuffle} style={{margin: "20px 200px"}} >Shuffle Deck</button>
 		</>
 	)
 }

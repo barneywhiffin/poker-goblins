@@ -12,19 +12,21 @@ export default function Table({deck}: {deck: Card[]}) {
         setCardShown(prevState => !prevState);
     }
 
+    const flop = true;
+    const turn = true;
+    const river = true;
+
     return (
         <>
             <div className="table">
-                <TableCard value={deck[0].value} suit={deck[0].suit} isShown={cardShown} toggleFunction={toggleShown}/>
-                <TableCard value={deck[1].value} suit={deck[1].suit} isShown={cardShown} toggleFunction={toggleShown}/>
                 <div className="board-centre">
-                    <CardSlot horizontal={false}/>
-                    <CardSlot horizontal={false}/>
-                    <CardSlot horizontal={false}/>
+                    {flop ? <TableCard value={deck[0].value} suit={deck[0].suit} isShown={cardShown} toggleFunction={toggleShown}/> : <CardSlot horizontal={false}/>}
+                    {flop ? <TableCard value={deck[1].value} suit={deck[1].suit} isShown={cardShown} toggleFunction={toggleShown}/> : <CardSlot horizontal={false}/>}
+                    {flop ? <TableCard value={deck[2].value} suit={deck[2].suit} isShown={cardShown} toggleFunction={toggleShown}/> : <CardSlot horizontal={false}/>}
                     <div className="space"></div>
-                    <CardSlot horizontal={false}/>
+                    {turn ? <TableCard value={deck[3].value} suit={deck[3].suit} isShown={cardShown} toggleFunction={toggleShown}/> : <CardSlot horizontal={false}/>}
                     <div className="space"></div>
-                    <CardSlot horizontal={false}/>
+                    {river ? <TableCard value={deck[4].value} suit={deck[4].suit} isShown={cardShown} toggleFunction={toggleShown}/> : <CardSlot horizontal={false}/>}
                 </div>
     
                 {/* TODO: add case switch with all the different table positions, and associated styling for location */}
