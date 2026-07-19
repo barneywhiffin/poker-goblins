@@ -3,5 +3,7 @@ export type Suit = "Spades" | "Diamonds" | "Clubs" | "Hearts";
 
 export interface Card {
     value: Value;
-    suit: Suit
+    suit: Suit;
+    isShown?: boolean;
+    toggleFunction?: () => void
 }
