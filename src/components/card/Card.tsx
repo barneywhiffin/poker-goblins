@@ -1,12 +1,12 @@
 import "./card.css";
-import type { Suit, Card } from "../../types/card";
+import type { CardProps } from "../../types/card";
 import { HeartIcon, DiamondIcon, SpadeIcon, ClubIcon } from "@phosphor-icons/react";
 
-export default function Card(props: Card) {
+export default function Card(props: CardProps) {
 
     const suitIconSize = 17;
 
-    function getSuitIcon(suit: Suit) {
+    function getSuitIcon(suit: string) {
         switch(suit) {
             case("Hearts"): {
                 return <HeartIcon size={suitIconSize} weight="fill" color="red"/>
@@ -25,9 +25,10 @@ export default function Card(props: Card) {
 
     return (
         <>
-            <div className="card" onClick={props.toggleFunction}>
+            <div className="card" onClick={() => props.toggleFunction(props.id)}>
                 {props.isShown && <h3 style={{fontSize: "18px"}}>{props.value} </h3>}
                 {props.isShown && getSuitIcon(props.suit)}
+                {/* TODO: add background pattern on flip */}
             </div>
         </>
     )
