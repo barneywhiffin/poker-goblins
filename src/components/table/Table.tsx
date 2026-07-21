@@ -1,7 +1,6 @@
 import './table.css';
 import CardSlot from '../card-slot/CardSlot';
 
-
 export default function Table({deck}: {deck: React.JSX.Element[]}) {
 
     const flopReached = true;

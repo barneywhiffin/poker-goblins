@@ -6,12 +6,5 @@ export interface Card {
     value: string;
     suit: string;
     isShown: boolean;
-}
-
-export interface CardProps {
-    id: number
-    value: string;
-    suit: string;
-    isShown: boolean;
     toggleFunction: Function;
 }
