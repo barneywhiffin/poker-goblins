@@ -1,9 +1,10 @@
-export type Value = "A" | "2" | "3" | "4" | "5" | "6" | "7" | "8" | "9" | "10" | "J" | "Q" | "K";
-export type Suit = "Spades" | "Diamonds" | "Clubs" | "Hearts";
+// TODO: work out if necessary and if so, if there is a way to still have value and suit be specifically typed
+// possibly yes as we are no back to cards being created in a for loop. although still kinda pointless top of my head
 
 export interface Card {
-    value: Value;
-    suit: Suit;
-    isShown?: boolean;
-    toggleFunction?: () => void
+    id: number
+    value: string;
+    suit: string;
+    isShown: boolean;
+    toggleFunction: Function;
 }

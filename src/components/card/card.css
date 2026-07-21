@@ -1,12 +1,25 @@
 .card {
-    width: 65px;
-    height: 100px;
-    margin-left: 5px;
+    width: 40px;
+    height: 60px;
     border-radius: 10px;
     border: 2px solid blue;
-    background: lightcyan;
+    background: white;
     display: inline-flex;
     justify-content: center;
     align-items: center;
-    gap: 2px
+    box-sizing: border-box;
+    margin: 0 1px;
+    gap: 1px;
+}
+
+/* TODO: add an alternate styling with height and width flipped, */
+/* triggered when prop cardRotated is true or smt */
+/* stored in state i guess..... or not just dependent on table position*/
+
+@media (prefers-color-scheme: dark) {
+    .card {
+        background: black;
+        color: white;
+        border: 2px solid lightblue;
+    }
 }
