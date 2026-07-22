@@ -1,4 +1,4 @@
-import type { Card } from '../types/card';
+import type { Card } from '../types/Card';
 
 export default function shuffleDeck(deck: Card[]) {
     // Fisher-Yates algorithm

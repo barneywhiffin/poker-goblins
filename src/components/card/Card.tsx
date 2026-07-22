@@ -1,8 +1,8 @@
 import "./card.css";
-import type { Card } from "../../types/card";
+import type { CardProps } from "../../types/Card";
 import { HeartIcon, DiamondIcon, SpadeIcon, ClubIcon } from "@phosphor-icons/react";
 
-export default function Card(props: Card) {
+export default function Card(props: CardProps) {
 
     const suitIconSize = 17;
 
