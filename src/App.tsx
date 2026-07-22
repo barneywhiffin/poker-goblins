@@ -20,6 +20,7 @@ function App() {
     )
 
     function shuffle() {
+		setDeckData(prevState => prevState.map(card => card = {...card, isShown: true}));
         setDeckData(shuffleDeck);
     }
 
