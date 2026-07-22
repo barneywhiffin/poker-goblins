@@ -1,6 +1,28 @@
+* {
+    font-family: 'Courier New', Courier, monospace;
+}
+
 body {
     max-width: 1000px;
     margin: 0 auto;
+}
+
+button {
+    background: rebeccapurple;
+    color: white;
+    border-radius: 10px;
+    font-size: large;
+    padding: 10px;
+    width: 180px;
+    cursor: pointer;
+    box-shadow: 0 1px 0 #000000;
+    transition: transform 0.05s ease, box-shadow 0.05s ease;
+}
+
+button:active {
+    transform: translateY(1px);
+    /* opacity: 95%; */
+    box-shadow: 0 0 0 #000000;
 }
 
 @media (prefers-color-scheme: dark) {

@@ -1,10 +1,11 @@
 .table {
     position: relative;
     margin: 20px auto 0 auto;
-    width: 700px;
-    height: 300px;
-    border-radius: 50px;
-    border: 20px solid rgb(41, 97, 103);
+    width: 800px;
+    height: 350px;
+    border-radius: 125px;
+    border: 25px solid sienna;
+    /* saddlebrown, sienna and peru all good */
     background: lightgreen;
     box-sizing: border-box;
     text-align: center;
@@ -13,8 +14,8 @@
 .board-centre {
     position: absolute;
     display: flex;
-    top: 90px;
-    left: 210px;
+    top: 115px;
+    left: 260px;
     height: 60px;
     width: 230px;
     /* border: 2px solid black; */
