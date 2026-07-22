@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.0.3](https://github.com/barneywhiffin/poker-goblins/compare/v0.0.2...v0.0.3) (2026-07-22)
+
+
+### Bug Fixes
+
+* type error in getCardValues ([58eac73](https://github.com/barneywhiffin/poker-goblins/commit/58eac732d1e0b140f79d165a91ab3c63a3e8d93f))
+
 ### [0.0.2](https://github.com/barneywhiffin/poker-goblins/compare/v0.0.1...v0.0.2) (2026-07-21)
 
 
