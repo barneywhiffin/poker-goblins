@@ -16,13 +16,18 @@ function App() {
     }
 
     const deck = deckData.map(card => 
-        <TableCard id={card.id} value={card.value} suit={card.suit} isShown={card.isShown} toggleFunction={toggleShown}/>
+        <TableCard id={card.id} value={card.value} suit={card.suit} isShown={card.isShown} toggleFunction={toggleShown} rotated={card.rotated}/>
     )
 
     function shuffle() {
-		setDeckData(prevState => prevState.map(card => card = {...card, isShown: true}));
-        setDeckData(shuffleDeck);
+		setDeckData(prevState => shuffleDeck(prevState.map(card => card = {...card, isShown: true, rotated: false})));
+		// this needs to be done post shuffle (obviously) so hard to merge with above line
+		setDeckData(prevState => prevState.map((card, idx) => 
+			idx === 9 || idx === 10 || idx === 15 || idx === 16 ? {...card, rotated: true} : card
+	))
     }
+
+	console.log(deck);
 
 	return (
 		<>

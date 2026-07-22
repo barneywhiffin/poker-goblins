@@ -7,5 +7,6 @@ export default function shuffleDeck(deck: Card[]) {
         const j = Math.floor(Math.random() * (i + 1));
         [shuffledDeck[i], shuffledDeck[j]] = [shuffledDeck[j], shuffledDeck[i]];
     }
+    console.log(shuffledDeck);
     return shuffledDeck;
 }

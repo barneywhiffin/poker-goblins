@@ -6,6 +6,7 @@ export interface Card {
     value: string;
     suit: string;
     isShown: boolean;
+    rotated: boolean;
 }
 
 export interface CardProps {
@@ -14,4 +15,5 @@ export interface CardProps {
     suit: string;
     isShown: boolean;
     toggleFunction: Function;
+    rotated: boolean;
 }
