@@ -21,6 +21,14 @@
     /* border: 2px solid black; */
 }
 
+.player {
+    position: absolute;
+    display: flex;
+    /* border: 1px solid white; */
+    width: 100px;
+    /* position needs to be determined by tsx.... */
+}
+
 .space {
     width: 8px;
 }
