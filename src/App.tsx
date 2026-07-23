@@ -24,15 +24,21 @@ function App() {
 		// this needs to be done post shuffle (obviously) so hard to merge with above line
 		setDeckData(prevState => prevState.map((card, idx) => 
 			idx === 9 || idx === 10 || idx === 15 || idx === 16 ? {...card, rotated: true} : card
-	))
+		));
+		setDeckData(prevState => prevState.map((card, idx) => 
+			idx === 7 || idx === 8 || idx === 9 || idx === 10 || idx === 11 || idx === 12 || idx === 13 || idx === 14 || idx === 15 || idx === 16 ? {...card, isShown: false} : card
+		));
     }
-
-	console.log(deck);
 
 	return (
 		<>
 			<Table deck={deck}/>
 			<button onClick={shuffle} style={{margin: "20px 200px"}} >Shuffle Deck</button>
+			<p>flop button</p>
+			<p>turn button</p>
+			<p>river button</p>
+			<p>showdown button</p>
+			<p>(need to initialise all other players cards as facedown)</p>
 		</>
 	);
 }

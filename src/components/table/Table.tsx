@@ -22,8 +22,6 @@ export default function Table({deck}: {deck: React.JSX.Element[]}) {
     // then simply have a function to map players to the ones we are using
 
     const [flopCard1, flopCard2, flopCard3, turnCard, riverCard, p1card1, p1card2, p2card1, p2card2, p3card1, p3card2, p4card1, p4card2, p5card1, p5card2, p6card1, p6card2] = deck;
-
-    // console.log(p1card1.props);
  
     return (
         <>
@@ -37,6 +35,7 @@ export default function Table({deck}: {deck: React.JSX.Element[]}) {
                     <div className="space"></div>
                     {riverReached ? riverCard : <CardSlot horizontal={false}/>}                    
                 </div>
+                <p>flop</p>
                 {/* {playerSlots} */}
 
                 <div className="player" style={{top: "230px", left:"450px"}}>
