@@ -20,7 +20,4 @@ for (let i = 0; i < suits.length; i++) {
     }
 }
 
-// FIX: init as false not here but when we make the deck in App.tsx
-// then when we shuffle, we also need to set the 10, 11, 16, 17 cards to rotated=true
-
 export default cards;

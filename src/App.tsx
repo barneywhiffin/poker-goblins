@@ -1,5 +1,6 @@
 import './App.css';
 import { useState } from "react";
+import type { Round } from './types/TableProps';
 import cardValues from './utils/getCardValues';
 import shuffleDeck from "./utils/shuffle";
 import Table from "./components/table/Table";
@@ -8,6 +9,8 @@ import TableCard from './components/card/Card';
 function App() {
 
 	const [deckData, setDeckData] = useState(cardValues);
+
+	const [round, setRound] = useState<Round>("Blank");
 
     function toggleShown(id: number) {
         setDeckData(prevState => prevState.map(card => 
@@ -30,15 +33,42 @@ function App() {
 		));
     }
 
+	let B1 = false;
+	let B2 = false;
+	let B3 = false;
+	let B4 = false;
+	let B5 = false;
+
+
+	function newRound() {
+		setRound("Pre");
+		shuffle();
+	}
+
+	function toTheFlop() {
+		setRound("Flop");
+	}
+
+	function toTheTurn() {
+		setRound("Turn");
+	}
+
+	function toTheRiver() {
+		setRound("River");
+	}
+
+	function showdown() {
+		setDeckData(prevState => prevState.map(card => card = {...card, isShown: true}));
+	}
+
 	return (
 		<>
-			<Table deck={deck}/>
-			<button onClick={shuffle} style={{margin: "20px 200px"}} >Shuffle Deck</button>
-			<p>flop button</p>
-			<p>turn button</p>
-			<p>river button</p>
-			<p>showdown button</p>
-			<p>(need to initialise all other players cards as facedown)</p>
+			<Table round={round} deck={deck}/>
+			<button onClick={newRound} style={{margin: "20px 200px"}} disabled={B1} >New Round</button>
+			<button onClick={toTheFlop} style={{margin: "0 200px"}} disabled={B2}>To The Flop</button>
+			<button onClick={toTheTurn} style={{margin: "20px 200px"}} disabled={B3}>To The Turn</button>
+			<button onClick={toTheRiver} style={{margin: "0 200px"}} disabled={B4}>To The River</button>
+			<button onClick={showdown} style={{margin: "20px 200px"}} disabled={B5}>Showdown</button>
 		</>
 	);
 }
