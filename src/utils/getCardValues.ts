@@ -13,7 +13,8 @@ for (let i = 0; i < suits.length; i++) {
             id: id,
             suit: suits[i],
             value: values[j],
-            isShown: true, 
+            isShown: false, 
+            rotated: false
         }
         cards.push(card);
     }
