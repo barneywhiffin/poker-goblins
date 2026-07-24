@@ -20,13 +20,13 @@ function App() {
     )
 
     function shuffle() {
-		setDeckData(prevState => shuffleDeck(prevState.map(card => card = {...card, isShown: true, rotated: false})));
+		setDeckData(prevState => shuffleDeck(prevState.map(card => card = {...card, isShown: false, rotated: false})));
 		// this needs to be done post shuffle (obviously) so hard to merge with above line
 		setDeckData(prevState => prevState.map((card, idx) => 
 			idx === 9 || idx === 10 || idx === 15 || idx === 16 ? {...card, rotated: true} : card
 		));
 		setDeckData(prevState => prevState.map((card, idx) => 
-			idx === 7 || idx === 8 || idx === 9 || idx === 10 || idx === 11 || idx === 12 || idx === 13 || idx === 14 || idx === 15 || idx === 16 ? {...card, isShown: false} : card
+			idx === 0 || idx === 1 || idx === 2 || idx === 3 || idx === 4 || idx === 5 || idx === 6 ? {...card, isShown: true} : card
 		));
     }
 

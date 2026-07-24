@@ -3,9 +3,9 @@ import CardSlot from '../card-slot/CardSlot';
 
 export default function Table({deck}: {deck: React.JSX.Element[]}) {
 
-    const flopReached = true;
-    const turnReached = true;
-    const riverReached = true;
+    const flopReached = false;
+    const turnReached = false;
+    const riverReached = false;
 
     const numPlayers = 4;
 
@@ -35,8 +35,11 @@ export default function Table({deck}: {deck: React.JSX.Element[]}) {
                     <div className="space"></div>
                     {riverReached ? riverCard : <CardSlot horizontal={false}/>}                    
                 </div>
-                <p>flop</p>
-                {/* {playerSlots} */}
+                {/* <div className="street-labels">
+                    <p className="flop">flop</p>
+                    <p className="turn">turn</p>
+                    <p className="river">river</p>
+                </div> */}
 
                 <div className="player" style={{top: "230px", left:"450px"}}>
                     {numPlayers > 0 ? p1card1 : <CardSlot horizontal={false}/>}
@@ -44,28 +47,28 @@ export default function Table({deck}: {deck: React.JSX.Element[]}) {
                 </div>
 
                 <div className="player" style={{top: "230px", left:"200px"}}>
-                    {numPlayers > 0 ? p2card1 : <CardSlot horizontal={false}/>}
-                    {numPlayers > 0 ? p2card2 : <CardSlot horizontal={false}/>}
+                    {numPlayers > 1 ? p2card1 : <CardSlot horizontal={false}/>}
+                    {numPlayers > 1 ? p2card2 : <CardSlot horizontal={false}/>}
                 </div>
 
                 <div className="player" style={{top: "110px", left:"20px", flexDirection: "column"}}>
-                    {numPlayers > 0 ? p3card1 : <CardSlot horizontal={false}/>}
-                    {numPlayers > 0 ? p3card2 : <CardSlot horizontal={false}/>}
+                    {numPlayers > 2 ? p3card1 : <CardSlot horizontal={true}/>}
+                    {numPlayers > 2 ? p3card2 : <CardSlot horizontal={true}/>}
                 </div>
 
                 <div className="player" style={{top: "10px", left:"200px"}}>
-                    {numPlayers > 0 ? p4card1 : <CardSlot horizontal={false}/>}
-                    {numPlayers > 0 ? p4card2 : <CardSlot horizontal={false}/>}
+                    {numPlayers > 3 ? p4card1 : <CardSlot horizontal={false}/>}
+                    {numPlayers > 3 ? p4card2 : <CardSlot horizontal={false}/>}
                 </div>
 
                 <div className="player" style={{top: "10px", left:"450px"}}>
-                    {numPlayers > 0 ? p5card1 : <CardSlot horizontal={false}/>}
-                    {numPlayers > 0 ? p5card2 : <CardSlot horizontal={false}/>}
+                    {numPlayers > 4 ? p5card1 : <CardSlot horizontal={false}/>}
+                    {numPlayers > 4 ? p5card2 : <CardSlot horizontal={false}/>}
                 </div>
 
                 <div className="player" style={{top: "110px", left:"670px", flexDirection: "column"}}>
-                    {numPlayers > 0 ? p6card1 : <CardSlot horizontal={false}/>}
-                    {numPlayers > 0 ? p6card2 : <CardSlot horizontal={false}/>}
+                    {numPlayers > 5 ? p6card1 : <CardSlot horizontal={true}/>}
+                    {numPlayers > 5 ? p6card2 : <CardSlot horizontal={true}/>}
                 </div>
     
                 {/* TODO: add case switch with all the different table positions, and associated styling for location */}
