@@ -2,6 +2,22 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.0.4](https://github.com/barneywhiffin/poker-goblins/compare/v0.0.3...v0.0.4) (2026-07-25)
+
+
+### Features
+
+* add 6 player slots ([c941ca6](https://github.com/barneywhiffin/poker-goblins/commit/c941ca6042763f7cc08b5f20c71b1df7cf3d524f))
+* add buttons to control round ([8110a2c](https://github.com/barneywhiffin/poker-goblins/commit/8110a2cb3b8d155b025626a6ae274f7e0907d0e4))
+* add cards to each slot ([e50a79b](https://github.com/barneywhiffin/poker-goblins/commit/e50a79b6e4e7f6f2376608e0bf1e02d54ef5d64e))
+* hide other players cards by default ([4cab194](https://github.com/barneywhiffin/poker-goblins/commit/4cab1941794ad6e6235f736dbb3881cd4d650ced))
+
+
+### Bug Fixes
+
+* allow shuffle to reset all cards to face up ([68fc755](https://github.com/barneywhiffin/poker-goblins/commit/68fc75561d42bbc264ebc98ebc110af086393ca8))
+* limit cards to dealt to number of players ([064bac5](https://github.com/barneywhiffin/poker-goblins/commit/064bac564a35ce149fe16a45a93f2301d745530c))
+
 ### [0.0.3](https://github.com/barneywhiffin/poker-goblins/compare/v0.0.2...v0.0.3) (2026-07-22)
 
 
