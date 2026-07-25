@@ -26,20 +26,23 @@ function App() {
 	const [flopCard1, flopCard2, flopCard3, turnCard, riverCard, p1card1, p1card2, p2card1, p2card2, p3card1, p3card2, p4card1, p4card2, p5card1, p5card2, p6card1, p6card2] = deck;
 	const cards = [flopCard1, flopCard2, flopCard3, turnCard, riverCard, p1card1, p1card2, p2card1, p2card2, p3card1, p3card2, p4card1, p4card2, p5card1, p5card2, p6card1, p6card2];
 
-    function shuffle() {
+	const rotationIndices = [9, 10, 15, 16];
+	const faceUpIndices = [0, 1, 2, 3, 4, 5, 6];
+
+    function shuffle(rotations: number[], faceUps: number[]) {
 		setDeckData(prevState => shuffleDeck(prevState.map(card => card = {...card, isShown: false, rotated: false})));
 		// this needs to be done post shuffle (obviously) so hard to merge with above line
 		setDeckData(prevState => prevState.map((card, idx) => 
-			idx === 9 || idx === 10 || idx === 15 || idx === 16 ? {...card, rotated: true} : card
+			rotations.includes(idx) ? {...card, rotated: true} : card
 		));
 		setDeckData(prevState => prevState.map((card, idx) => 
-			idx === 0 || idx === 1 || idx === 2 || idx === 3 || idx === 4 || idx === 5 || idx === 6 ? {...card, isShown: true} : card
+			faceUps.includes(idx) ? {...card, isShown: true} : card
 		));
     }
 
 	function newRound() {
 		setRound("Pre");
-		shuffle();
+		shuffle(rotationIndices, faceUpIndices);
 	}
 
 	function toTheFlop() {
@@ -60,6 +63,8 @@ function App() {
 	const [p4Hand, setP4Hand] = useState("");
 	const [p5Hand, setP5Hand] = useState("");
 	const [p6Hand, setP6Hand] = useState("");
+
+	// TODO: we can make the above a single array. look it up
 
 	function showdown() {
 		setDeckData(prevState => prevState.map(card => card = {...card, isShown: true}));
