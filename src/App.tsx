@@ -68,12 +68,14 @@ function App() {
 	return (
 		<>
 			<Table round={round} deck={deck}/>
-			<button onClick={newRound} style={{margin: "20px 200px"}} disabled={B1} >New Round</button>
-			<button onClick={toTheFlop} style={{margin: "0 200px"}} disabled={B2}>To The Flop</button>
-			<button onClick={toTheTurn} style={{margin: "20px 200px"}} disabled={B3}>To The Turn</button>
-			<button onClick={toTheRiver} style={{margin: "0 200px"}} disabled={B4}>To The River</button>
-			<button onClick={showdown} style={{margin: "20px 200px"}} disabled={B5}>Showdown</button>
-			<button onClick={reset} style={{margin: "0 200px"}} disabled={B5}>Reset Board</button>
+			<div className="button-container">
+				<button onClick={newRound} disabled={B1} >New Round</button>
+				<button onClick={toTheFlop} disabled={B2}>To The Flop</button>
+				<button onClick={toTheTurn} disabled={B3}>To The Turn</button>
+				<button onClick={toTheRiver} disabled={B4}>To The River</button>
+				<button onClick={showdown} disabled={B5}>Showdown</button>
+				<button onClick={reset} disabled={B5}>Reset Board</button>
+			</div>
 		</>
 	);
 }

@@ -7,12 +7,20 @@ body {
     margin: 0 auto;
 }
 
+.button-container {
+    display: grid;
+    width: 70%;
+    margin: 30px 0 0 140px;
+    grid-template-columns: 1fr 1fr;
+}
+
 button {
     background: rebeccapurple;
     color: white;
     border-radius: 10px;
     font-size: large;
     padding: 10px;
+    margin: 10px auto;
     width: 180px;
     cursor: pointer;
     box-shadow: 0 1px 0 #000000;
