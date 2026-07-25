@@ -61,6 +61,10 @@ function App() {
 		setDeckData(prevState => prevState.map(card => card = {...card, isShown: true}));
 	}
 
+	function reset() {
+		setRound("Blank");	
+	}
+
 	return (
 		<>
 			<Table round={round} deck={deck}/>
@@ -69,6 +73,7 @@ function App() {
 			<button onClick={toTheTurn} style={{margin: "20px 200px"}} disabled={B3}>To The Turn</button>
 			<button onClick={toTheRiver} style={{margin: "0 200px"}} disabled={B4}>To The River</button>
 			<button onClick={showdown} style={{margin: "20px 200px"}} disabled={B5}>Showdown</button>
+			<button onClick={reset} style={{margin: "0 200px"}} disabled={B5}>Reset Board</button>
 		</>
 	);
 }

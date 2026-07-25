@@ -4,7 +4,7 @@ import CardSlot from '../card-slot/CardSlot';
 
 export default function Table({round, deck}: TableProps) {
 
-    const numPlayers = round != "Blank" ? 4 : 0;
+    const numPlayers = round != "Blank" ? 6 : 0;
     const newRound = round != "Blank" ? true : false;
     const flopReached = round === "Flop" || round === "Turn" || round === "River" ? true : false;
     const turnReached = round === "Turn" || round === "River" ? true : false;
