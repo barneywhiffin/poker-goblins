@@ -5,20 +5,20 @@ export default function isFlush(suits: string[]) {
     let handClubs = 0;
     let handHearts = 0;
 
-    const handSuits = suits.slice(0, 1);
-    const tableSuits = suits.slice(2, 6);
+    const handSuits = suits.slice(0, 2);
+    const tableSuits = suits.slice(2);
 
     for (let i = 0; i < handSuits.length; i++) {
-        if (suits[i] === "Spades") {
+        if (handSuits[i] === "Spades") {
             handSpades++;
         }
-        else if (suits[i] === "Diamonds") {
+        else if (handSuits[i] === "Diamonds") {
             handDiamonds++;
         }
-        else if (suits[i] === "Clubs") {
+        else if (handSuits[i] === "Clubs") {
             handClubs++;
         }
-        else if (suits[i] === "Hearts") {
+        else if (handSuits[i] === "Hearts") {
             handHearts++;
         }
     }
@@ -29,16 +29,16 @@ export default function isFlush(suits: string[]) {
     let tableHearts = 0;
     
     for (let i = 0; i < tableSuits.length; i++) {
-        if (suits[i] === "Spades") {
+        if (tableSuits[i] === "Spades") {
             tableSpades++;
         }
-        else if (suits[i] === "Diamonds") {
+        else if (tableSuits[i] === "Diamonds") {
             tableDiamonds++;
         }
-        else if (suits[i] === "Clubs") {
+        else if (tableSuits[i] === "Clubs") {
             tableClubs++;
         }
-        else if (suits[i] === "Hearts") {
+        else if (tableSuits[i] === "Hearts") {
             tableHearts++;
         }
     }

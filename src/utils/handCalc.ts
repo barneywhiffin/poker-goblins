@@ -7,7 +7,7 @@ import isFlush from './isFlush';
 
 export default function handCalc(p1: React.JSX.Element, p2: React.JSX.Element, f1: React.JSX.Element, f2: React.JSX.Element, f3: React.JSX.Element, t: React.JSX.Element, r: React.JSX.Element ) {
     const suits = [p1.props.suit, p2.props.suit, f1.props.suit, f2.props.suit, f3.props.suit, t.props.suit, r.props.suit];
-    const values = [p1.props.value, p2.props.value, f1.props.value, f2.props.value, f3.props.value, t.props.value, r.props.value];
+    // const values = [p1.props.value, p2.props.value, f1.props.value, f2.props.value, f3.props.value, t.props.value, r.props.value];
     if (isFlush(suits)) {
         return "Flush";
     }

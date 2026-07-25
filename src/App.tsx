@@ -13,6 +13,8 @@ function App() {
 
 	const [round, setRound] = useState<Round>("Blank");
 
+	const [showResults, setShowResults] = useState(false);
+
     function toggleShown(id: number) {
         setDeckData(prevState => prevState.map(card => 
             id === card.id ? card = {...card, isShown: !card.isShown} : card
@@ -41,6 +43,7 @@ function App() {
     }
 
 	function newRound() {
+		setShowResults(false);
 		setRound("Pre");
 		shuffle(rotationIndices, faceUpIndices);
 	}
@@ -67,6 +70,7 @@ function App() {
 	// TODO: we can make the above a single array. look it up
 
 	function showdown() {
+		setShowResults(true);
 		setDeckData(prevState => prevState.map(card => card = {...card, isShown: true}));
     	setP1Hand(handCalc(p1card1, p1card2, flopCard1, flopCard2, flopCard3, turnCard, riverCard));
     	setP2Hand(handCalc(p2card1, p2card2, flopCard1, flopCard2, flopCard3, turnCard, riverCard));
@@ -91,15 +95,14 @@ function App() {
 				<button onClick={showdown}>Showdown</button>
 				<button onClick={reset}>Reset Board</button>
 			</div>
-			<div style={{textAlign: "center"}}>
-				{p1Hand === "Flush" && <p>Player 1 Flush!</p>}
-				{p2Hand === "Flush" && <p>Player 2 Flush!</p>}
-				{p3Hand === "Flush" && <p>Player 3 Flush!</p>}
-				{p4Hand === "Flush" && <p>Player 4 Flush!</p>}
-				{p5Hand === "Flush" && <p>Player 5 Flush!</p>}
-				{p6Hand === "Flush" && <p>Player 6 Flush!</p>}
-			</div>
-
+			{showResults && <div style={{textAlign: "center"}}>
+				<p>Player 1: {p1Hand}</p>
+				<p>Player 2: {p2Hand}</p>
+				<p>Player 3: {p3Hand}</p>
+				<p>Player 4: {p4Hand}</p>
+				<p>Player 5: {p5Hand}</p>
+				<p>Player 6: {p6Hand}</p>
+			</div>}
 		</>
 	);
 }
