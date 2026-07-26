@@ -24,21 +24,5 @@ export default function countValues(values: string[]) {
         }
     }
 
-    // while loop. each time switch made, add to a switch count. if 0 at loop end, flip the flag
-    let stillSwitching = true;
-
-    while (stillSwitching) {
-        let switchCount = 0;
-        for (let i = 0; i < cardCount.length-1; i++) {
-            if (cardCount[i+1].count > cardCount[i].count) {
-                [cardCount[i], cardCount[i+1]] = [cardCount[i+1], cardCount[i]];
-                switchCount++;
-            }
-        }
-        if (switchCount === 0) {
-            stillSwitching = false;
-        }
-    }
-
     return cardCount;
 }

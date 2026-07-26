@@ -1,5 +1,6 @@
 import getPairs from './hand-calcs/pairs';
 import isFlush from './hand-calcs/isFlush';
+import isStraight from './hand-calcs/isStraight';
 
 // this needs to take both player cards and a variable amount of table cards
 // (depending on current street)
@@ -11,6 +12,8 @@ export default function handCalc(p1: React.JSX.Element, p2: React.JSX.Element, f
     const values = [p1.props.value, p2.props.value, f1.props.value, f2.props.value, f3.props.value, t.props.value, r.props.value];
 
     const pairCheck = getPairs(values);
+    // i know this is currently inefficient but it is all getting reworked
+    const straight = isStraight(values);
 
     if (isFlush(suits)) {
         if (pairCheck === "Four Of A Kind" || pairCheck === "Full House") {
@@ -19,6 +22,10 @@ export default function handCalc(p1: React.JSX.Element, p2: React.JSX.Element, f
         else {
             return "Flush";
         }
+    }
+    else if (straight.length > 0) {
+        // console.log(straight);
+        return "Straight";
     }
     else {
         return pairCheck;

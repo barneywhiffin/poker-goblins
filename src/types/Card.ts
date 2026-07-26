@@ -17,3 +17,8 @@ export interface CardProps {
     toggleFunction: Function;
     rotated: boolean;
 }
+
+export interface CardCalcProps {
+    value: string;
+    count: number
+}

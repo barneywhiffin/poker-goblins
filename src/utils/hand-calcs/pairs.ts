@@ -1,7 +1,8 @@
 import countValues from './countValues';
+import sortCards from './sortCards';
 
 export default function isPair(values: string[]) {
-    const cardCount = countValues(values);
+    const cardCount = sortCards(countValues(values));
     if (cardCount[0].count === 4) {
         return "Four Of A Kind";
     }
