@@ -87,22 +87,25 @@ function App() {
 	return (
 		<>
 			<Table round={round} cards={cards}/>
-			<div className="button-container">
-				<button onClick={newRound} >New Round</button>
-				<button onClick={toTheFlop}>To The Flop</button>
-				<button onClick={toTheTurn}>To The Turn</button>
-				<button onClick={toTheRiver}>To The River</button>
-				<button onClick={showdown}>Showdown</button>
-				<button onClick={reset}>Reset Board</button>
+			<div style={{display: "flex", height: "200px"}}>
+				<div className="button-container">
+					<button onClick={newRound} >New Round</button>
+					<button onClick={toTheFlop}>To The Flop</button>
+					<button onClick={toTheTurn}>To The Turn</button>
+					<button onClick={toTheRiver}>To The River</button>
+					<button onClick={showdown}>Showdown</button>
+					<button onClick={reset}>Reset Board</button>
+				</div>
+				{showResults && <div style={{marginLeft: "20px"}}>
+					<p>Player 1: {p1Hand}</p>
+					<p>Player 2: {p2Hand}</p>
+					<p>Player 3: {p3Hand}</p>
+					<p>Player 4: {p4Hand}</p>
+					<p>Player 5: {p5Hand}</p>
+					<p>Player 6: {p6Hand}</p>
+				</div>}
 			</div>
-			{showResults && <div style={{textAlign: "center"}}>
-				<p>Player 1: {p1Hand}</p>
-				<p>Player 2: {p2Hand}</p>
-				<p>Player 3: {p3Hand}</p>
-				<p>Player 4: {p4Hand}</p>
-				<p>Player 5: {p5Hand}</p>
-				<p>Player 6: {p6Hand}</p>
-			</div>}
+
 		</>
 	);
 }

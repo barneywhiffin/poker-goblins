@@ -59,3 +59,11 @@ export default function isFlush(suits: string[]) {
         return false;
     }
 }
+
+// TODO: this is wrong, can have flush with just cards on the board. actually much simpler logic
+// the hand part is needed to know whether you can contribute a card that makes for a stronger flush than anyone else has
+
+// basically we need to say, if 5 on board and pocket cards lower than any, you have weakest (or split pot if true twice)
+// god this needs a lot of though
+// else, if yours is highest of that suit present, you win etc...
+

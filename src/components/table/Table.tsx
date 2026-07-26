@@ -79,3 +79,5 @@ export default function Table({round, cards}: TableProps) {
         </>
     )
 }
+
+// TODO: i'd love the thing where the 3 relevant board cards are pushed up for actual winner
