@@ -86,6 +86,7 @@ function App() {
 
 	return (
 		<>
+			<h1>Poker Goblins</h1>
 			<Table round={round} cards={cards}/>
 			<div style={{display: "flex", height: "200px"}}>
 				<div className="button-container">
