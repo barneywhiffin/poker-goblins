@@ -20,7 +20,7 @@ export default function isStraight(player: number, values: string[]) {
             counter = 0;
         }
         // this means each value in the straights array represents a "{value} high straight"
-        if (counter === 5) {
+        if (counter >= 5) {
             straights.push(cardCount[i].value);
         }
     }
