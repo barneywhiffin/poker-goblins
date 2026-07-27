@@ -2,16 +2,18 @@ import './App.css';
 import { useState } from "react";
 import type { Round } from './types/TableProps';
 import cardValues from './utils/getCardValues';
-import shuffleDeck from "./utils/shuffle";
+import shuffleDeck from './utils/shuffle';
 import handCalc from './utils/handCalc';
 import Table from "./components/table/Table";
 import TableCard from './components/card/Card';
+import { rankHands } from './utils/hand-calcs/sub-utils/sortCards';
+import { mapRankToHand, mapRankToValue } from './utils/hand-calcs/sub-utils/mapValues';
 
 function App() {
 
 	const [deckData, setDeckData] = useState(cardValues);
 
-	const [round, setRound] = useState<Round>("Blank");
+	const [round, setRound] = useState<Round>('Blank');
 
 	const [showResults, setShowResults] = useState(false);
 
@@ -44,51 +46,73 @@ function App() {
 
 	function newRound() {
 		setShowResults(false);
-		setRound("Pre");
+		setRound('Pre');
 		shuffle(rotationIndices, faceUpIndices);
 	}
 
 	function toTheFlop() {
-		setRound("Flop");
+		setRound('Flop');
 	}
 
 	function toTheTurn() {
-		setRound("Turn");
+		setRound('Turn');
 	}
 
 	function toTheRiver() {
-		setRound("River");
+		setRound('River');
 	}
 
-	const [p1Hand, setP1Hand] = useState("");
-	const [p2Hand, setP2Hand] = useState("");
-	const [p3Hand, setP3Hand] = useState("");
-	const [p4Hand, setP4Hand] = useState("");
-	const [p5Hand, setP5Hand] = useState("");
-	const [p6Hand, setP6Hand] = useState("");
+	const [p1Hand, setP1Hand] = useState([1, 1, 1, 1, 1, 1, 1]);
+	const [p2Hand, setP2Hand] = useState([2, 1, 1, 1, 1, 1, 1]);
+	const [p3Hand, setP3Hand] = useState([3, 1, 1, 1, 1, 1, 1]);
+	const [p4Hand, setP4Hand] = useState([4, 1, 1, 1, 1, 1, 1]);
+	const [p5Hand, setP5Hand] = useState([5, 1, 1, 1, 1, 1, 1]);
+	const [p6Hand, setP6Hand] = useState([6, 1, 1, 1, 1, 1, 1]);
 
 	// TODO: we can make the above a single array. look it up
 
 	function showdown() {
 		setShowResults(true);
 		setDeckData(prevState => prevState.map(card => card = {...card, isShown: true}));
-    	setP1Hand(handCalc(p1card1, p1card2, flopCard1, flopCard2, flopCard3, turnCard, riverCard));
-    	setP2Hand(handCalc(p2card1, p2card2, flopCard1, flopCard2, flopCard3, turnCard, riverCard));
-    	setP3Hand(handCalc(p3card1, p3card2, flopCard1, flopCard2, flopCard3, turnCard, riverCard));
-    	setP4Hand(handCalc(p4card1, p4card2, flopCard1, flopCard2, flopCard3, turnCard, riverCard));
-    	setP5Hand(handCalc(p5card1, p5card2, flopCard1, flopCard2, flopCard3, turnCard, riverCard));
-    	setP6Hand(handCalc(p6card1, p6card2, flopCard1, flopCard2, flopCard3, turnCard, riverCard));
+    	setP1Hand(handCalc(1, [p1card1, p1card2, flopCard1, flopCard2, flopCard3, turnCard, riverCard]));
+    	setP2Hand(handCalc(2, [p2card1, p2card2, flopCard1, flopCard2, flopCard3, turnCard, riverCard]));
+    	setP3Hand(handCalc(3, [p3card1, p3card2, flopCard1, flopCard2, flopCard3, turnCard, riverCard]));
+    	setP4Hand(handCalc(4, [p4card1, p4card2, flopCard1, flopCard2, flopCard3, turnCard, riverCard]));
+    	setP5Hand(handCalc(5, [p5card1, p5card2, flopCard1, flopCard2, flopCard3, turnCard, riverCard]));
+    	setP6Hand(handCalc(6, [p6card1, p6card2, flopCard1, flopCard2, flopCard3, turnCard, riverCard]));
 	}
 
 	function reset() {
-		setRound("Blank");	
+		setRound('Blank');
 	}
+
+	function displayHands(hands: number[][]) {
+		const rankedHands = rankHands(hands);
+		const winner = rankedHands[0];
+		const player = winner[0];
+		console.log(winner);
+		const hand = mapRankToHand(winner[1]);
+		const val1 = mapRankToValue(winner[2]);
+		const val2 = mapRankToValue(winner[3]);
+		return [player, hand, val1, val2];
+	}
+
+	// const h1 = p1Hand[1];
+
+	const [player, hand, val1, val2] = displayHands([p1Hand, p2Hand, p3Hand, p4Hand, p5Hand, p6Hand]);
+
+	// TODO: sorting alg does kickers wrong because it counts pairs first, value second
+	// so if remaining cards after 2 pair are e.g. an A and two 2s, it will say 2 kicker.....
+
+	// const mapHandsToJSX
+
+	// BUGGGGG with 2 pair kings and queens missed, but 2 pair queens and 4s in another hand noted
 
 	return (
 		<>
 			<h1>Poker Goblins</h1>
 			<Table round={round} cards={cards}/>
-			<div style={{display: "flex", height: "200px"}}>
+			<div style={{display: 'flex', height: '200px'}}>
 				<div className="button-container">
 					<button onClick={newRound} >New Round</button>
 					<button onClick={toTheFlop}>To The Flop</button>
@@ -97,13 +121,15 @@ function App() {
 					<button onClick={showdown}>Showdown</button>
 					<button onClick={reset}>Reset Board</button>
 				</div>
-				{showResults && <div style={{marginLeft: "20px"}}>
-					<p>Player 1: {p1Hand}</p>
+				{showResults && <div style={{marginLeft: '20px'}}>
+					<p>Winner: Player {player} with {hand} {val1}s (and {val2}s)</p>
+					{/* <p>Player 1: {p1Hand}</p>
 					<p>Player 2: {p2Hand}</p>
 					<p>Player 3: {p3Hand}</p>
 					<p>Player 4: {p4Hand}</p>
 					<p>Player 5: {p5Hand}</p>
-					<p>Player 6: {p6Hand}</p>
+					<p>Player 6: {p6Hand}</p> */}
+					{/* TODO: would be cool if these eventually got ranked top to bottom */}
 				</div>}
 			</div>
 

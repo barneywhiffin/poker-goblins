@@ -1,69 +1,47 @@
-export default function isFlush(suits: string[]) {
+import { sortCards } from './sub-utils/sortCards';
+import { mapValuesToRank } from './sub-utils/mapValues';
 
-    let handSpades = 0;
-    let handDiamonds = 0;
-    let handClubs = 0;
-    let handHearts = 0;
+export default function isFlush(player: number, suits: string[], values: string[]) {
 
-    const handSuits = suits.slice(0, 2);
-    const tableSuits = suits.slice(2);
+    let spadeCards = [];
+    let diamondCards = [];
+    let clubCards = [];
+    let heartCards = [];
 
-    for (let i = 0; i < handSuits.length; i++) {
-        if (handSuits[i] === "Spades") {
-            handSpades++;
+    for (let i = 0; i < suits.length; i++) {
+        if (suits[i] === "Spades") {
+            spadeCards.push(values[i]);
         }
-        else if (handSuits[i] === "Diamonds") {
-            handDiamonds++;
+        else if (suits[i] === "Diamonds") {
+            diamondCards.push(values[i]);
         }
-        else if (handSuits[i] === "Clubs") {
-            handClubs++;
+        else if (suits[i] === "Clubs") {
+            clubCards.push(values[i]);
         }
-        else if (handSuits[i] === "Hearts") {
-            handHearts++;
-        }
-    }
-
-    let tableSpades = 0;
-    let tableDiamonds = 0;
-    let tableClubs = 0;
-    let tableHearts = 0;
-    
-    for (let i = 0; i < tableSuits.length; i++) {
-        if (tableSuits[i] === "Spades") {
-            tableSpades++;
-        }
-        else if (tableSuits[i] === "Diamonds") {
-            tableDiamonds++;
-        }
-        else if (tableSuits[i] === "Clubs") {
-            tableClubs++;
-        }
-        else if (tableSuits[i] === "Hearts") {
-            tableHearts++;
+        else if (suits[i] === "Hearts") {
+            heartCards.push(values[i]);
         }
     }
     
-    if (handSpades > 0 && handSpades + tableSpades > 4) {
-        return true;
+    if (spadeCards.length > 4) {
+        const [rank1, rank2, rank3, rank4, rank5] = mapValuesToRank(sortCards(spadeCards)); // sorting so that we are looking at the 5 highest of that suit in the 7
+        return [player, 6, rank1, rank2, rank3, rank4, rank5];                                      // sorting alg only runs if flush ever found for efficiency
     }
-    else if (handDiamonds > 0 && handDiamonds + tableDiamonds > 4) {
-        return true;
+    else if (diamondCards.length > 4) {
+        const [rank1, rank2, rank3, rank4, rank5] = mapValuesToRank(sortCards(diamondCards));
+        return [player, 6, rank1, rank2, rank3, rank4, rank5];
     }
-    else if (handClubs > 0 && handClubs + tableClubs > 4) {
-        return true;
+    else if (clubCards.length > 4) {
+        const [rank1, rank2, rank3, rank4, rank5] = mapValuesToRank(sortCards(clubCards));
+        return [player, 6, rank1, rank2, rank3, rank4, rank5];
     }
-    else if (handHearts > 0 && handHearts + tableHearts > 4) {
-        return true;
+    else if (heartCards.length > 4) {
+        const [rank1, rank2, rank3, rank4, rank5] = mapValuesToRank(sortCards(heartCards));
+        return [player, 6, rank1, rank2, rank3, rank4, rank5];
     }
+    // so that it loses the comparison with paired card function return
     else {
-        return false;
+        return [0];
     }
 }
-
-// TODO: this is wrong, can have flush with just cards on the board. actually much simpler logic
-// the hand part is needed to know whether you can contribute a card that makes for a stronger flush than anyone else has
-
-// basically we need to say, if 5 on board and pocket cards lower than any, you have weakest (or split pot if true twice)
-// god this needs a lot of though
-// else, if yours is highest of that suit present, you win etc...
 
