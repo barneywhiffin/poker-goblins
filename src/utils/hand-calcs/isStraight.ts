@@ -27,7 +27,7 @@ export default function isStraight(player: number, values: string[]) {
     if ( straights.length > 0) {
         const topVal = straights.at(-1) ?? "";
         const topRank = mapValueToRank(topVal);
-        return [player, 5, topRank, topRank-1, topRank-2, topRank-3, topRank-4];
+        return [player, 5, topRank];
     }
     // so that it loses the comparison with paired card function return
     else {

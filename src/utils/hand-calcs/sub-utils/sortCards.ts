@@ -47,9 +47,6 @@ function deepSwap(arr: number[][], i: number, depth: number, switches: number): 
         if (arr[i][depth]) {
             [arr, switches] = deepSwap(arr, i, depth, switches);
         }
-        else {
-            console.log('tie found!');
-        }
     }
     else if (arr[i+1][depth] > arr[i][depth]) {
         [arr[i], arr[i+1]] = [arr[i+1], arr[i]];
@@ -61,11 +58,6 @@ function deepSwap(arr: number[][], i: number, depth: number, switches: number): 
 }
 
 export function rankHands(arr: number[][]) {
-
-    // instead of going through until all swaps have been made at current level
-    // go through to the deepest possible depth for a given swap at a given level
-    // this way after moving on, the 2 are definitely the right way round
-    // and we don't have to create new stillSwitching etc each time we recurse
 
     let stillSwitching = true;
     let depth = 1;
@@ -81,6 +73,25 @@ export function rankHands(arr: number[][]) {
         }
     }
 
+    // still need to account for tiessssss
+
     return arr;
+}
+
+export function findTies(arr: number[][]) {
+    let tied = true;
+    let nTies = 1;
+    while (tied) {
+        for (let i = 0; i < arr.length-1; i++) {
+            for (let j = 1; j < arr[i].length; j++) { 
+                if (arr[i][j] != arr[i+1][j]) {
+                    tied = false;
+                    return nTies;
+                }
+            }
+            nTies === arr.length ? tied = false : nTies++;
+        }
+    }
+    return nTies;
 }
 
