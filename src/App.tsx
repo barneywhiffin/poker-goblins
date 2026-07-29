@@ -87,10 +87,17 @@ function App() {
 	}
 
 	function displayHands(hands: number[][]) {
+		// console.log(hands);
 		const rankedHands = rankHands(hands);
+
+		// might be easier to do isIdentical check here
+		// literally, for i in array1 (starting index1)
+		// is array2i the same, if so is next the same etc
+		// if they are all the same, check same for 2 and 3 etc
+
+		// console.log(rankedHands);
 		const winner = rankedHands[0];
 		const player = winner[0];
-		console.log(winner);
 		const hand = mapRankToHand(winner[1]);
 		const val1 = mapRankToValue(winner[2]);
 		const val2 = mapRankToValue(winner[3]);
@@ -99,7 +106,11 @@ function App() {
 
 	// const h1 = p1Hand[1];
 
-	const [player, hand, val1, val2] = displayHands([p1Hand, p2Hand, p3Hand, p4Hand, p5Hand, p6Hand]);
+	// we'll have to offset hand index by number of players returned. shouldn't be too hard
+
+	let handsArray = [p1Hand, p2Hand, p3Hand, p4Hand, p5Hand, p6Hand];
+
+	const [player, hand, val1, val2] = displayHands(handsArray);
 
 	// TODO: sorting alg does kickers wrong because it counts pairs first, value second
 	// so if remaining cards after 2 pair are e.g. an A and two 2s, it will say 2 kicker.....
@@ -121,7 +132,7 @@ function App() {
 					<button onClick={showdown}>Showdown</button>
 					<button onClick={reset}>Reset Board</button>
 				</div>
-				{showResults && <div style={{marginLeft: '20px'}}>
+				{showResults && <div style={{marginLeft: '20px', maxWidth: '300px'}}>
 					<p>Winner: Player {player} with {hand} {val1}s (and {val2}s)</p>
 					{/* <p>Player 1: {p1Hand}</p>
 					<p>Player 2: {p2Hand}</p>
