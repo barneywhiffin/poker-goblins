@@ -25,7 +25,7 @@ export default function isFlush(player: number, suits: string[], values: string[
     
     if (spadeCards.length > 4) {
         const [rank1, rank2, rank3, rank4, rank5] = mapValuesToRank(sortCards(spadeCards)); // sorting so that we are looking at the 5 highest of that suit in the 7
-        return [player, 6, rank1, rank2, rank3, rank4, rank5];                                      // sorting alg only runs if flush ever found for efficiency
+        return [player, 6, rank1, rank2, rank3, rank4, rank5];                              // sorting alg only runs if flush ever found for efficiency
     }
     else if (diamondCards.length > 4) {
         const [rank1, rank2, rank3, rank4, rank5] = mapValuesToRank(sortCards(diamondCards));
