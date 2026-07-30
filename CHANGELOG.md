@@ -2,6 +2,28 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.0.5](https://github.com/barneywhiffin/poker-goblins/compare/v0.0.4...v0.0.5) (2026-07-30)
+
+
+### Features
+
+* add calc for royal flush and straight flush ([aca4d98](https://github.com/barneywhiffin/poker-goblins/commit/aca4d98ef3a6e8e011a5a85bf82f30a162592a88))
+* add chec for number of ties ([e4e6792](https://github.com/barneywhiffin/poker-goblins/commit/e4e6792853c8b5161bc698523c89d4da6611b042))
+* add check for flush and onscreen text at showdown ([7a85556](https://github.com/barneywhiffin/poker-goblins/commit/7a85556e40d9969cae47725ee2137d74affc836f))
+* add check for straight ([091be1c](https://github.com/barneywhiffin/poker-goblins/commit/091be1cd0d346920519b9a712626c9c28723026a))
+* add checks for pair type hands ([0de07ba](https://github.com/barneywhiffin/poker-goblins/commit/0de07ba4ccc6f859ad408c2fe6eb6246d7bf1642))
+* add display of winning hand type ([6639bb7](https://github.com/barneywhiffin/poker-goblins/commit/6639bb7fe1cae475396bb1009617e090540e3dd8))
+* show different win message if split pot ([cea0b6f](https://github.com/barneywhiffin/poker-goblins/commit/cea0b6f89b63555954895e5af5a4bd3400d94d9a))
+
+
+### Bug Fixes
+
+* add kickers to best hand calc when hand type equal ([cd3d975](https://github.com/barneywhiffin/poker-goblins/commit/cd3d975c46d6af481d360e5bc5bda387135e2c9b))
+* bugs in flush calc ([224a392](https://github.com/barneywhiffin/poker-goblins/commit/224a392d72f4f6122a1210e03468cd52b3645495))
+* fix bug a 3 pair hand would return 3rd pair value as 2 pair kicker, rather than highest remaining ([556ffa4](https://github.com/barneywhiffin/poker-goblins/commit/556ffa425079a1cfc6519b174efc3eeb12dba93a))
+* fix bug where any unrelated straight and flush counted as straight flush ([933cb2e](https://github.com/barneywhiffin/poker-goblins/commit/933cb2e77bc21815c1834d8f660ece072832a9c5))
+* fix bug where more than 5 in a row would only count the weakest straight ([a04b843](https://github.com/barneywhiffin/poker-goblins/commit/a04b84339e527288daa156af0f804b9b6d30308c))
+
 ### [0.0.4](https://github.com/barneywhiffin/poker-goblins/compare/v0.0.3...v0.0.4) (2026-07-25)
 
 
