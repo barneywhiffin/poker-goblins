@@ -6,8 +6,8 @@ import shuffleDeck from './utils/shuffle';
 import handCalc from './utils/handCalc';
 import Table from './components/table/Table';
 import TableCard from './components/card/Card';
-import { findTies, rankHands } from './utils/hand-calcs/sub-utils/sortCards';
-import { mapRankToHand, mapRankToValue } from './utils/hand-calcs/sub-utils/mapValues';
+import getWinners from './utils/getWinners';
+import WinnerMessage from './components/WinnerMessage';
 
 function App() {
 
@@ -85,37 +85,9 @@ function App() {
 	function reset() {
 		setRound('Blank');
 	}
-
-	function getWinners(hands: number[][]) {
-		const rankedHands = rankHands(hands);
-		const numWinners = findTies(rankedHands);
-		let winners = [];
-		for (let i = 0; i < numWinners; i++) {
-			winners.push(rankedHands[i]);
-		}
-		return winners;
-	}
 	
-	// TODO: functionise the message displayed for each hand type
-	// TODO: actually display each player who won in a tie
-	
-	let handsArray = [p1Hand, p2Hand, p3Hand, p4Hand, p5Hand, p6Hand];
+	const handsArray = [p1Hand, p2Hand, p3Hand, p4Hand, p5Hand, p6Hand];
 	const winners = getWinners(handsArray);
-	const hand = mapRankToHand(winners[0][1]);
-	const val1 = mapRankToValue(winners[0][2]);
-	const val2 = mapRankToValue(winners[0][3]);
-	const val3 = mapRankToValue(winners[0][4])
-	let players = [];
-	for (let i = 0; i < winners.length; i++) {
-		players.push(winners[i][0]);
-	}
-
-	// TODO: sorting alg does kickers wrong because it counts pairs first, value second
-	// so if remaining cards after 2 pair are e.g. an A and two 2s, it will say 2 kicker.....
-	// so after we have gone far enough to determine hand type, the rest should be sorted purely by value instead??
-	// the same thing could go wrong for quads!!!
-
-	// this is still a big bad bug !!! ^^^^^^^^^
 
 	return (
 		<>
@@ -130,12 +102,7 @@ function App() {
 					<button onClick={showdown}>Showdown</button>
 					<button onClick={reset}>Reset Board</button>
 				</div>
-				{showResults &&
-				// function that returns the component which tells of the winners
-				<div style={{marginLeft: '20px', maxWidth: '300px'}}>
-					<p>Winner: Player(s) {players} with {hand} {val1}s (and {val2}s)</p>
-					<p>backup kicker {val3}</p>
-				</div>}
+				{showResults && <WinnerMessage winners={winners}/>}
 			</div>
 
 		</>

@@ -51,8 +51,6 @@ function deepSwap(arr: number[][], i: number, depth: number, switches: number): 
     else if (arr[i+1][depth] > arr[i][depth]) {
         [arr[i], arr[i+1]] = [arr[i+1], arr[i]];
         switches ++;
-        console.log(`sort: index ${i} swapped with ${i+1}`);
-        console.log([...arr]);
     }
     return [arr, switches];
 }
@@ -66,14 +64,11 @@ export function rankHands(arr: number[][]) {
         let switches = 0;
         for (let i = 0; i < arr.length-1; i++) {
             [arr, switches] = deepSwap(arr, i, depth, switches);
-            console.log(`switches = ${switches}`);
         }
         if (switches === 0) {
             stillSwitching = false;
         }
     }
-
-    // still need to account for tiessssss
 
     return arr;
 }
