@@ -28,7 +28,7 @@ export default function Card(props: CardProps) {
     return (
         <>
             <div className = {cardClass} onClick={() => props.toggleFunction(props.id)}>
-                {props.isShown && <h3 style={{fontSize: "18px"}}>{props.value} </h3>}
+                {props.isShown && <h3 style={{fontSize: "16px"}}>{props.value} </h3>}
                 {props.isShown && getSuitIcon(props.suit)}
                 {/* TODO: add background pattern on flip */}
             </div>

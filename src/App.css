@@ -3,14 +3,20 @@
 }
 
 body {
-    max-width: 1000px;
+    max-width: 800px;
     margin: 0 auto;
 }
 
+h1 {
+    color: rebeccapurple;
+    text-align: center;
+}
+
+
 .button-container {
     display: grid;
-    width: 70%;
-    margin: 30px 0 0 140px;
+    width: 350px;
+    margin: 10px 0 0 80px;
     grid-template-columns: 1fr 1fr;
 }
 
@@ -21,7 +27,7 @@ button {
     font-size: large;
     padding: 10px;
     margin: 10px auto;
-    width: 180px;
+    width: 160px;
     cursor: pointer;
     box-shadow: 0 1px 0 #000000;
     transition: transform 0.05s ease, box-shadow 0.05s ease;
@@ -36,6 +42,9 @@ button:active {
 @media (prefers-color-scheme: dark) {
     body {
         background: black;
+        color: white;
+    }
+    h1 {
         color: white;
     }
 }
