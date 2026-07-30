@@ -63,7 +63,7 @@ function App() {
 	}
 
 	const [p1Hand, setP1Hand] = useState([1, 1, 1, 1, 1, 1, 1]);
-	const [p2Hand, setP2Hand] = useState([2, 2, 1, 1, 1, 1, 1]); // 2 to stop tie check running forever initially
+	const [p2Hand, setP2Hand] = useState([2, 1, 1, 1, 1, 1, 1]);
 	const [p3Hand, setP3Hand] = useState([3, 1, 1, 1, 1, 1, 1]);
 	const [p4Hand, setP4Hand] = useState([4, 1, 1, 1, 1, 1, 1]);
 	const [p5Hand, setP5Hand] = useState([5, 1, 1, 1, 1, 1, 1]);
@@ -86,38 +86,35 @@ function App() {
 		setRound('Blank');
 	}
 
-	function displayHands(hands: number[][]) {
-		// console.log(hands);
+	function getWinners(hands: number[][]) {
 		const rankedHands = rankHands(hands);
-		const nTies = findTies(rankedHands);
-		console.log(nTies);
-		// might be easier to do isIdentical check here
-		// literally, for i in array1 (starting index1)
-		// is array2i the same, if so is next the same etc
-		// if they are all the same, check same for 2 and 3 etc
-
-		// console.log(rankedHands);
-		const winner = rankedHands[0];
-		const player = winner[0];
-		const hand = mapRankToHand(winner[1]);
-		const val1 = mapRankToValue(winner[2]);
-		const val2 = mapRankToValue(winner[3]);
-		return [player, hand, val1, val2, nTies];
+		const numWinners = findTies(rankedHands);
+		let winners = [];
+		for (let i = 0; i < numWinners; i++) {
+			winners.push(rankedHands[i]);
+		}
+		return winners;
 	}
-
-	// const h1 = p1Hand[1];
-
-	// we'll have to offset hand index by number of players returned. shouldn't be too hard
-
+	
+	// TODO: functionise the message displayed for each hand type
+	// TODO: actually display each player who won in a tie
+	
 	let handsArray = [p1Hand, p2Hand, p3Hand, p4Hand, p5Hand, p6Hand];
-	const [player, hand, val1, val2, nTies] = displayHands(handsArray);
+	const winners = getWinners(handsArray);
+	const hand = mapRankToHand(winners[0][1]);
+	const val1 = mapRankToValue(winners[0][2]);
+	const val2 = mapRankToValue(winners[0][3]);
+	let players = [];
+	for (let i = 0; i < winners.length; i++) {
+		players.push(winners[i][0]);
+	}
 
 	// TODO: sorting alg does kickers wrong because it counts pairs first, value second
 	// so if remaining cards after 2 pair are e.g. an A and two 2s, it will say 2 kicker.....
+	// so after we have gone far enough to determine hand type, the rest should be sorted purely by value instead??
+	// the same thing could go wrong for quads!!!
 
-	// const mapHandsToJSX
-
-	// BUGGGGG with 2 pair kings and queens missed, but 2 pair queens and 4s in another hand noted
+	// this is still a big bad bug !!! ^^^^^^^^^
 
 	return (
 		<>
@@ -132,16 +129,10 @@ function App() {
 					<button onClick={showdown}>Showdown</button>
 					<button onClick={reset}>Reset Board</button>
 				</div>
-				{showResults && <div style={{marginLeft: '20px', maxWidth: '300px'}}>
-					<p>Winner: Player {player} with {hand} {val1}s (and {val2}s)</p>
-					<p>Number of tied players: {nTies}</p>
-					{/* <p>Player 1: {p1Hand}</p>
-					<p>Player 2: {p2Hand}</p>
-					<p>Player 3: {p3Hand}</p>
-					<p>Player 4: {p4Hand}</p>
-					<p>Player 5: {p5Hand}</p>
-					<p>Player 6: {p6Hand}</p> */}
-					{/* TODO: would be cool if these eventually got ranked top to bottom */}
+				{showResults &&
+				// function that returns the component which tells of the winners
+				<div style={{marginLeft: '20px', maxWidth: '300px'}}>
+					<p>Winner: Player(s) {players} with {hand} {val1}s (and {val2}s)</p>
 				</div>}
 			</div>
 
