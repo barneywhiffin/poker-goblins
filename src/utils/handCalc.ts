@@ -15,17 +15,7 @@ export default function handCalc(player: number, cards: React.JSX.Element[] ) {
     const straight = isStraight(player, values);
 
     if (flush[1] > pairedHand[1]) {
-        if (straight[1] > 0) {
-            if (straight[2] === 13) {
-                straight[1] = 10;
-                return straight;
-            }
-            straight[1] = 9;
-            return straight;
-        }
-        else {
-            return flush;
-        }
+        return flush;
     }
     else if (straight[1] > pairedHand[1]) {
         return straight;
