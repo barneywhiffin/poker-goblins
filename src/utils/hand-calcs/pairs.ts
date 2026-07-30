@@ -13,7 +13,8 @@ export default function isPair(player: number, values: string[]) {
 
     if (cardCount[0].count === 4) {
         // quads
-        return [player, 8, rank1, rank2];
+        const quadKicker = Math.max(rank2, rank3, rank4, rank5);
+        return [player, 8, rank1, quadKicker];
     }
     else if (cardCount[0].count === 3) {
         if (cardCount[1].count >= 2) {
@@ -28,7 +29,8 @@ export default function isPair(player: number, values: string[]) {
     else if (cardCount[0].count === 2) {
         if (cardCount[1].count === 2) {
             // two pair
-            return [player, 3, rank1, rank2, rank3];
+            const tpKicker = Math.max(rank3, rank4, rank5);
+            return [player, 3, rank1, rank2, tpKicker];
         }
         else {
             // pair

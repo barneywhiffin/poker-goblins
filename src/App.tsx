@@ -104,6 +104,7 @@ function App() {
 	const hand = mapRankToHand(winners[0][1]);
 	const val1 = mapRankToValue(winners[0][2]);
 	const val2 = mapRankToValue(winners[0][3]);
+	const val3 = mapRankToValue(winners[0][4])
 	let players = [];
 	for (let i = 0; i < winners.length; i++) {
 		players.push(winners[i][0]);
@@ -133,6 +134,7 @@ function App() {
 				// function that returns the component which tells of the winners
 				<div style={{marginLeft: '20px', maxWidth: '300px'}}>
 					<p>Winner: Player(s) {players} with {hand} {val1}s (and {val2}s)</p>
+					<p>backup kicker {val3}</p>
 				</div>}
 			</div>
 
