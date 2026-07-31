@@ -84,7 +84,11 @@ export function findTies(arr: number[][]) {
                     return nTies;
                 }
             }
-            nTies === arr.length ? tied = false : nTies++;
+            if (nTies === arr.length) {
+                tied = false;
+            } else {
+                nTies++;
+            }
         }
     }
     return nTies;
