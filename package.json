@@ -4,14 +4,16 @@
   "version": "0.0.5",
   "type": "module",
   "scripts": {
+    "lint": "oxlint",
     "dev": "vite",
     "build": "tsc -b && vite build",
+    "preview": "vite preview",
     "release": "standard-version",
-    "publish": "git push --follow-tags origin main",
-    "lint": "oxlint",
-    "preview": "vite preview"
+    "publish": "git push --follow-tags origin main"
   },
   "dependencies": {
+    "@mantine/core": "^9.5.0",
+    "@mantine/hooks": "^9.5.0",
     "@phosphor-icons/react": "^2.1.10",
     "oxlint-tsgolint": "^0.25.0",
     "react": "^19.2.7",
