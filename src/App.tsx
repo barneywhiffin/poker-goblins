@@ -10,13 +10,13 @@ const theme = createTheme({
 });
 
 function App() {
-
+``
 	return (
 		<MantineProvider theme={theme}>
-			<AppShell header={{ height: 85 }}>
+			<AppShell header={{ height: 45 }}>
 				<AppShell.Header>
 					<h1>
-						<PokerChipIcon/>  Poker Goblins  <PokerChipIcon/>
+						<PokerChipIcon size={32}/>  <span>Poker Goblins</span>
 					</h1>
 				</AppShell.Header>
 				<AppShell.Main>

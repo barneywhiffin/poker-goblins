@@ -6,10 +6,18 @@ body {
 }
 
 h1 {
-    color: rebeccapurple;
-    text-align: center;
+    color: crimson;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    line-height: 1;
+    max-width: 1000px;
+    margin: 5px auto;
 }
 
+h1 svg {
+    margin-bottom: 5px;
+}
 
 .button-container {
     display: grid;
