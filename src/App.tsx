@@ -1,24 +1,39 @@
 import '@mantine/core/styles.css';
 import './App.css';
 import LetsPlayPoker from './containers/LetsPlayPoker';
-import { createTheme, MantineProvider, AppShell } from '@mantine/core';
-import {  PokerChipIcon } from '@phosphor-icons/react';
+import { createTheme, MantineProvider, AppShell, Burger, Drawer } from '@mantine/core';
+import { useDisclosure } from '@mantine/hooks';
 
 const theme = createTheme({
     fontFamily: '"Courier Prime", "Cutive Mono", "American Typewriter", "Courier New", monospace',
-	primaryColor: 'pink',
+	primaryColor: 'dark',
+	focusRing: 'never',
 });
+
 
 function App() {
 
+	const headerHeight = 50;
+	
+	const [opened, { close, toggle }] = useDisclosure();
+
 	return (
 		<MantineProvider theme={theme}>
-			<AppShell header={{ height: 45 }}>
+			<AppShell header={{ height: headerHeight }}>
 				<AppShell.Header>
-					<h1>
-						<PokerChipIcon size={32}/>  <span>Poker Goblins</span>
-					</h1>
+					<div style={{display: 'flex', alignItems: 'center', maxWidth: '500px', height: headerHeight, marginLeft: 10}}>
+						<Burger opened={opened} onClick={toggle}/>
+						<h1 style={{marginTop: '25px', marginLeft: 15}}>Poker Goblins</h1>
+					</div>
 				</AppShell.Header>
+				<Drawer opened={opened} onClose={close} title="Menu"size={250} withOverlay>
+					<ul style={{listStyle: 'none'}}>
+						<li>To The Flop</li>
+						<li>Sandbox</li>
+						<li>VPIP Calculator</li>
+						<li>Settings</li>
+					</ul>
+				</Drawer>
 				<AppShell.Main>
 					<LetsPlayPoker/>
 				</AppShell.Main>

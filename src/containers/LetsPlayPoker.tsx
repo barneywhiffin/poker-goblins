@@ -94,9 +94,9 @@ export default function LetsPlayPoker() {
     const winners = getWinners(handsArray);
 
     return (
-        <>
+        <div style={{margin: '40px 0 0 0'}}>
             <Table round={round} cards={cards}/>
-            <div style={{display: 'flex', height: '200px'}}>
+            <div style={{display: 'flex', height: '200px', marginLeft: '320px'}}>
                 <Button.Group orientation="vertical" style={{margin: '20px 0 0 265px', height: 250, width: 250}}>
                     <Button 
                         size="md" 
@@ -167,6 +167,6 @@ export default function LetsPlayPoker() {
                 </Button.Group>
                 {showResults && <WinnerMessage winners={winners}/>}
             </div>
-        </>
+        </div>
     );
 }

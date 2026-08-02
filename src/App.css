@@ -1,49 +1,12 @@
 @import url('https://fonts.googleapis.com/css2?family=Azeret+Mono:wght@400;700&family=Bitter:wght@400;700&family=Bree+Serif&family=Courier+Prime:wght@400;700&family=Cutive+Mono&family=IBM+Plex+Mono:wght@400;700&family=Special+Elite&family=Arvo:wght@400;700&family=Alegreya:wght@400;700&display=swap');
 
-body {
-    max-width: 800px;
-    margin: 0 auto;
-}
-
 h1 {
-    color: crimson;
     display: flex;
     align-items: center;
-    gap: 10px;
+    gap: 15px;
     line-height: 1;
-    max-width: 1000px;
-    margin: 5px auto;
+    /* margin: 5px auto; */
 }
-
-h1 svg {
-    margin-bottom: 5px;
-}
-
-.button-container {
-    display: grid;
-    width: 350px;
-    margin: 10px 0 0 80px;
-    grid-template-columns: 1fr 1fr;
-}
-
-/* button {
-    background: rebeccapurple;
-    color: white;
-    border-radius: 10px;
-    font-size: large;
-    padding: 10px;
-    margin: 10px auto;
-    width: 160px;
-    cursor: pointer;
-    box-shadow: 0 1px 0 #000000;
-    transition: transform 0.05s ease, box-shadow 0.05s ease;
-} */
-
-/* button:active {
-    transform: translateY(1px);
-    opacity: 95%;
-    box-shadow: 0 0 0 #000000;
-} */
 
 @media (prefers-color-scheme: dark) {
     body {
