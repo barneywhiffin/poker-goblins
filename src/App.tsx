@@ -6,7 +6,7 @@ import { useDisclosure } from '@mantine/hooks';
 
 const theme = createTheme({
     fontFamily: '"Courier Prime", "Cutive Mono", "American Typewriter", "Courier New", monospace',
-	primaryColor: 'dark',
+	primaryColor: 'yellow',
 	focusRing: 'never',
 });
 
@@ -20,9 +20,9 @@ function App() {
 	return (
 		<MantineProvider theme={theme}>
 			<AppShell header={{ height: headerHeight }}>
-				<AppShell.Header>
+				<AppShell.Header className='header'>
 					<div style={{display: 'flex', alignItems: 'center', maxWidth: '500px', height: headerHeight, marginLeft: 10}}>
-						<Burger opened={opened} onClick={toggle}/>
+						<Burger opened={opened} onClick={toggle} color='yellow'/>
 						<h1 style={{marginTop: '25px', marginLeft: 15}}>Poker Goblins</h1>
 					</div>
 				</AppShell.Header>
