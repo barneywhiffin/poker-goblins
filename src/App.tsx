@@ -4,9 +4,9 @@ import { useState } from 'react';
 import LetsPlayPoker from './containers/LetsPlayPoker';
 import NavDrawer from './containers/NavDrawer';
 import VpipCalculator from './containers/vpip-calculator/VpipCalculator';
-import { createTheme, MantineProvider, ColorSchemeScript, AppShell, Burger, useComputedColorScheme } from '@mantine/core';
+import { createTheme, MantineProvider, ColorSchemeScript, AppShell, Burger, useComputedColorScheme, Button } from '@mantine/core';
 import { useDisclosure } from '@mantine/hooks';
-import { PokerChipIcon } from '@phosphor-icons/react';
+import { PokerChipIcon, GithubLogoIcon } from '@phosphor-icons/react';
 
 const theme = createTheme({
     fontFamily: '"Courier Prime", "Cutive Mono", "American Typewriter", "Courier New", monospace',
@@ -59,8 +59,19 @@ function AppContent() {
 			<AppShell.Main>
 				{mainContent()}
 			</AppShell.Main>
-			<AppShell.Footer style={{textAlign: 'center'}}>
-				<p style={{marginTop: '3px'}}>A React app by Barney W. <a href="https://github.com/barneywhiffin">GitHub</a></p>
+			<AppShell.Footer style={{display: 'flex', justifyContent: 'center', alignItems: 'center'}}>
+				<p>A React app by Barney W.</p>
+				<span style={{width: '10px'}}></span>
+				<Button
+					style={{marginBottom: '3px'}}
+				    component="a"
+      				href="https://github.com/barneywhiffin"
+					size='compact-xs'
+					variant='outline'
+					justify='space-between'
+					rightSection={<GithubLogoIcon/>}>
+					Github
+				</Button>
 			</AppShell.Footer>
 		</AppShell>
 	);
