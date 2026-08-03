@@ -47,7 +47,7 @@ function AppContent() {
 	}
 
 	return (
-		<AppShell header={{ height: headerHeight }}>
+		<AppShell header={{ height: headerHeight }} footer={{height: '30px'}}>
 			<AppShell.Header className='header'>
 				<div style={{display: 'flex', alignItems: 'center', maxWidth: '500px', height: headerHeight, marginLeft: 14}}>
 					<Burger onClick={toggle} color={computedColorScheme === 'light' ? 'dark' : 'yellow'}/>
@@ -59,6 +59,9 @@ function AppContent() {
 			<AppShell.Main>
 				{mainContent()}
 			</AppShell.Main>
+			<AppShell.Footer style={{textAlign: 'center'}}>
+				<p style={{marginTop: '3px'}}>A React app by Barney W. <a href="https://github.com/barneywhiffin">GitHub</a></p>
+			</AppShell.Footer>
 		</AppShell>
 	);
 }
