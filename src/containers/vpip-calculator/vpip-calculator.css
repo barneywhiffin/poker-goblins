@@ -1,0 +1,12 @@
+.vpip-grid {
+    display: grid;
+    height: 650px;
+    width: 50%;
+    margin: 20px auto;
+    grid-template-columns: repeat(14, 1fr);
+    grid-template-rows: repeat(14, 1fr);
+}
+
+span {
+    text-align: center;
+}
