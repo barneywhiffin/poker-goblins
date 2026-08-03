@@ -7,16 +7,3 @@ h1 {
     line-height: 1;
     /* margin: 5px auto; */
 }
-
-@media (prefers-color-scheme: dark) {
-    body {
-        background: black;
-        color: white;
-    }
-    h1 {
-        color: white;
-    }
-    .header {
-        background: black;
-    }
-}
