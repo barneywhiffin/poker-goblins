@@ -52,7 +52,7 @@ function AppContent() {
 					<h1 style={{marginTop: '25px', marginLeft: 15, color: computedColorScheme === 'light' ? 'black' : 'orange'}}>Poker Goblins</h1>
 				</div>
 			</AppShell.Header>
-				<NavDrawer openState={opened} activeTab={activeTab} navFunction={handleNavSelection}/>
+				<NavDrawer openState={opened} activeTab={activeTab} navFunction={handleNavSelection} closeFunction={close}/>
 			<AppShell.Main>
 				{mainContent()}
 			</AppShell.Main>

@@ -4,11 +4,12 @@ interface NavDrawerProps {
   openState: boolean;
   activeTab: string;
   navFunction: (tab: string) => void;
+  closeFunction: () => void;
 }
 
 export default function NavDrawer(props: NavDrawerProps) {
     return (
-        <Drawer opened={props.openState} onClose={close} title="Menu"size={250} withOverlay>
+        <Drawer opened={props.openState} onClose={props.closeFunction} title="Menu"size={250} withOverlay>
             <NavLink
                 label='To The Flop'
                 active={props.activeTab === 'poker'}
