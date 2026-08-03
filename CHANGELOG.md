@@ -2,6 +2,19 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.0.6](https://github.com/barneywhiffin/poker-goblins/compare/v0.0.5...v0.0.6) (2026-08-03)
+
+
+### Features
+
+* initialise menu drawer ([32cae7f](https://github.com/barneywhiffin/poker-goblins/commit/32cae7f468d8f095dc949e44504c647324fe16aa))
+* initialise state driven main content from drawer navlinks ([2d588c5](https://github.com/barneywhiffin/poker-goblins/commit/2d588c58fb755ded5f51f085acc179aa3a368424))
+
+
+### Bug Fixes
+
+* bug where cross/esc would not close drawer ([95b4bc0](https://github.com/barneywhiffin/poker-goblins/commit/95b4bc0fed279d2cc5589f40648f7dfb3624f1ab))
+
 ### [0.0.5](https://github.com/barneywhiffin/poker-goblins/compare/v0.0.4...v0.0.5) (2026-07-30)
 
 
