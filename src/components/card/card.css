@@ -25,10 +25,6 @@
     margin: 1px 0;
 }
 
-/* TODO: add an alternate styling with height and width flipped, */
-/* triggered when prop cardRotated is true or smt */
-/* stored in state i guess..... or not just dependent on table position*/
-
 @media (prefers-color-scheme: dark) {
     .card {
         background: black;
