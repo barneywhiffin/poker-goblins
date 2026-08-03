@@ -2,7 +2,8 @@ import '@mantine/core/styles.css';
 import './App.css';
 import { useState } from 'react';
 import LetsPlayPoker from './containers/LetsPlayPoker';
-import { createTheme, MantineProvider, ColorSchemeScript, AppShell, Burger, Drawer, useComputedColorScheme, NavLink } from '@mantine/core';
+import NavDrawer from './containers/NavDrawer';
+import { createTheme, MantineProvider, ColorSchemeScript, AppShell, Burger, useComputedColorScheme } from '@mantine/core';
 import { useDisclosure } from '@mantine/hooks';
 
 const theme = createTheme({
@@ -51,29 +52,7 @@ function AppContent() {
 					<h1 style={{marginTop: '25px', marginLeft: 15, color: computedColorScheme === 'light' ? 'black' : 'orange'}}>Poker Goblins</h1>
 				</div>
 			</AppShell.Header>
-			<Drawer opened={opened} onClose={close} title="Menu"size={250} withOverlay>
-				<NavLink
-					label='To The Flop'
-					active={activeTab === 'poker'}
-					onClick={() => handleNavSelection('poker')}
-				/>
-				<NavLink
-					label='Sandbox'
-					active={activeTab === 'sandbox'}
-					onClick={() => handleNavSelection('sandbox')}
-				/>
-				<NavLink
-					label='VPIP Calculator'
-					active={activeTab === 'vpip'}
-					onClick={() => handleNavSelection('vpip')}
-				/>
-				<NavLink
-					label='Settings'
-					active={activeTab === 'settings'}
-					onClick={() => handleNavSelection('settings')}
-				/>
-				{/* settings needs to have mantine tabs !! */}
-			</Drawer>
+				<NavDrawer openState={opened} activeTab={activeTab} navFunction={handleNavSelection}/>
 			<AppShell.Main>
 				{mainContent()}
 			</AppShell.Main>
