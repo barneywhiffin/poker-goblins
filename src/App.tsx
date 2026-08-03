@@ -1,7 +1,8 @@
 import '@mantine/core/styles.css';
 import './App.css';
+import { useState } from 'react';
 import LetsPlayPoker from './containers/LetsPlayPoker';
-import { createTheme, MantineProvider, ColorSchemeScript, AppShell, Burger, Drawer, useComputedColorScheme } from '@mantine/core';
+import { createTheme, MantineProvider, ColorSchemeScript, AppShell, Burger, Drawer, useComputedColorScheme, NavLink } from '@mantine/core';
 import { useDisclosure } from '@mantine/hooks';
 
 const theme = createTheme({
@@ -12,14 +13,35 @@ const theme = createTheme({
   	luminanceThreshold: 0.3,
 });
 
-function AppContent() {
 
+function AppContent() {
+	
 	const headerHeight = 50;
 	
 	const [opened, { close, toggle }] = useDisclosure();
-
+	
+	const [activeTab, setActiveTab] = useState('poker');
+	
 	// read only hook for check of current colour scheme: useComputedColorScheme
 	const computedColorScheme = useComputedColorScheme('light');
+
+	function mainContent() {
+		switch(activeTab) {
+			case 'poker':
+				return <LetsPlayPoker/>;
+			case 'sandbox':
+				return <p>sandbox</p>;
+			case 'vpip':
+				return <p>vpip</p>;
+			case 'settings':
+				return <p>settings</p>;
+		}
+	}
+
+	function handleNavSelection(tab: string) {
+		setActiveTab(tab);
+		close();
+	}
 
 	return (
 		<AppShell header={{ height: headerHeight }}>
@@ -30,15 +52,30 @@ function AppContent() {
 				</div>
 			</AppShell.Header>
 			<Drawer opened={opened} onClose={close} title="Menu"size={250} withOverlay>
-				<ul style={{listStyle: 'none'}}>
-					<li>To The Flop</li>
-					<li>Sandbox</li>
-					<li>VPIP Calculator</li>
-					<li>Settings</li>
-				</ul>
+				<NavLink
+					label='To The Flop'
+					active={activeTab === 'poker'}
+					onClick={() => handleNavSelection('poker')}
+				/>
+				<NavLink
+					label='Sandbox'
+					active={activeTab === 'sandbox'}
+					onClick={() => handleNavSelection('sandbox')}
+				/>
+				<NavLink
+					label='VPIP Calculator'
+					active={activeTab === 'vpip'}
+					onClick={() => handleNavSelection('vpip')}
+				/>
+				<NavLink
+					label='Settings'
+					active={activeTab === 'settings'}
+					onClick={() => handleNavSelection('settings')}
+				/>
+				{/* settings needs to have mantine tabs !! */}
 			</Drawer>
 			<AppShell.Main>
-				<LetsPlayPoker/>
+				{mainContent()}
 			</AppShell.Main>
 		</AppShell>
 	);
