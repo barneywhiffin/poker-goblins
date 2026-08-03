@@ -10,15 +10,6 @@ export default function Table({round, cards}: TableProps) {
     const turnReached = round === "Turn" || round === "River" ? true : false;
     const riverReached = round === "River" ? true : false;
 
-    // for (let i = 0; i < numPlayers; i++) {
-    //     playerSlots.push(
-    //         <div className="player" style={{top: 100*i}}>
-    //             <CardSlot horizontal={false}/>
-    //             <CardSlot horizontal={false}/>
-    //         </div>
-    //     )
-    // }
-
     // i think we need to manually fix all the possible slot positions
     // then simply have a function to map players to the ones we are using
 
@@ -38,11 +29,6 @@ export default function Table({round, cards}: TableProps) {
                     <div className="space"></div>
                     {riverReached ? riverCard : <CardSlot horizontal={false}/>}                    
                 </div>
-                {/* <div className="street-labels">
-                    <p className="flop">flop</p>
-                    <p className="turn">turn</p>
-                    <p className="river">river</p>
-                </div> */}
 
                 <div className="player" style={{top: "230px", left:"450px"}}>
                     {newRound && numPlayers > 0 ? p1card1 : <CardSlot horizontal={false}/>}
