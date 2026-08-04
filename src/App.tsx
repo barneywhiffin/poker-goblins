@@ -63,7 +63,7 @@ function AppContent() {
 				<p>A React app by Barney W.</p>
 				<span style={{width: '10px'}}></span>
 				<Button
-					style={{marginBottom: '3px'}}
+					// style={{marginBottom: '3px'}}
 				    component="a"
       				href="https://github.com/barneywhiffin"
 					size='compact-xs'
