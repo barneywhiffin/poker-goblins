@@ -1,12 +1,8 @@
 .vpip-grid {
     display: grid;
     height: 650px;
-    width: 50%;
+    width: 650px;
     margin: 10px auto;
-    grid-template-columns: repeat(14, 1fr);
-    grid-template-rows: repeat(14, 1fr);
-}
-
-span {
-    text-align: center;
+    grid-template-columns: repeat(13, 1fr);
+    grid-template-rows: repeat(13, 1fr);
 }

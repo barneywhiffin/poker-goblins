@@ -2,7 +2,7 @@ import { useState } from 'react';
 import { Button } from '@mantine/core';
 import { PlayIcon, StopIcon, FastForwardIcon, SkipForwardIcon } from '@phosphor-icons/react';
 import type { Round } from '../types/TableProps';
-import cardValues from '../utils/getCardValues';
+import { cardValues } from '../utils/getCardValues';
 import shuffleDeck from '../utils/shuffle';
 import handCalc from '../utils/handCalc';
 import TableCard from '../components/card/Card';

@@ -3,9 +3,9 @@ import type { Card } from '../types/Card';
 const suits = ['Spades', 'Diamonds', 'Clubs', 'Hearts'];
 // const values = ['A', '2', '3', '4', '5', '6', '7', '8', '9', '10', 'J', 'Q', 'K'];
 // for testing (everyone gets royal flush on the board)
-const values = ['A', 'K', 'Q', 'J', '10', '9', '8', '7', '6', '5', '4', '3', '2'];
+export const values = ['A', 'K', 'Q', 'J', '10', '9', '8', '7', '6', '5', '4', '3', '2'];
 
-let cards: Card[] = [];
+export let cardValues: Card[] = [];
 let id = 0;
 
 for (let i = 0; i < suits.length; i++) {
@@ -18,8 +18,6 @@ for (let i = 0; i < suits.length; i++) {
             isShown: false, 
             rotated: false
         }
-        cards.push(card);
+        cardValues.push(card);
     }
 }
-
-export default cards;
