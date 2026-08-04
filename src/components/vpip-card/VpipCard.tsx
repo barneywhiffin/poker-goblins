@@ -1,7 +1,10 @@
 import './vpip-card.css';
 
-export default function VpipCard({content}: {content: string}) {
+export default function VpipCard(
+    {id, content, vpipColour, setVpipColour}:
+    {id: number, content: string, vpipColour: string, setVpipColour: (tab: number) => void})
+    {
     return (
-        <div className='vpip-card'>{content}</div>
+        <button style={{background: vpipColour}} onClick={() => setVpipColour(id)} className='vpip-card'>{content}</button>
     )
 }

@@ -35,7 +35,7 @@ function AppContent() {
 			case 'sandbox':
 				return <p>sandbox</p>;
 			case 'vpip':
-				return <VpipCalculator/>;
+				return <VpipCalculator computedColorScheme={computedColorScheme}/>;
 			case 'settings':
 				return <p>settings</p>;
 		}

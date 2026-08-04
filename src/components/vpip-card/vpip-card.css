@@ -1,8 +1,7 @@
 .vpip-card {
     display: inline;
-    border: 1px solid purple;
     border-radius: 10px;
-    box-sizing: border-box;
+    border: 1px solid;
     text-align: center;
     align-content: center;
     letter-spacing: -0.1em;
