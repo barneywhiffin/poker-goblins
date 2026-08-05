@@ -21,6 +21,26 @@ function sortValues(val1: string, val2: string) {
     }
 }
 
+function findNewColour(colour: string) {
+    switch(colour) {
+        case 'coral':
+            return 'gold';
+        case 'gold':
+            return 'lightgreen';
+        case 'lightgreen':
+            return 'coral';
+        case 'crimson':
+            return 'darkorange';
+        case 'darkorange':
+            return 'seagreen';
+        case 'seagreen':
+            return 'crimson';
+        default:
+            return '';
+    }
+}
+
+// TODO: once backend code to store and fetch from a database has been written, this can switch to using that
 
 export default function VpipCalculator({computedColorScheme}: {computedColorScheme: string}) {
     
@@ -29,35 +49,14 @@ export default function VpipCalculator({computedColorScheme}: {computedColorSche
     // useEffect, so that it waits for computedColorScheme before first render
     // doesn't have cleanup code (a return) as only ever called once
     useEffect(() => {
-        const defaultColour = computedColorScheme === 'light' ? 'coral' : 'red';
+        const defaultColour = computedColorScheme === 'light' ? 'coral' : 'crimson';
         let vpipCardColours = [];
-        for (let i = 0; i < 169; i++) {
+        for (let i = 0; i < values1.length*values2.length; i++) {
             vpipCardColours.push({id: i, colour: defaultColour});
         }
-
         setVpipColours(vpipCardColours);
-
     }, [computedColorScheme]);
 
-
-    function findNewColour(colour: string) {
-        switch(colour) {
-            case 'coral':
-                return 'gold';
-            case 'gold':
-                return 'lightgreen';
-            case 'lightgreen':
-                return 'coral';
-            case 'red':
-                return 'orange';
-            case 'orange':
-                return 'green';
-            case 'green':
-                return 'red';
-            default:
-                return '';
-        }
-    }
 
     function changeColour(id: number) {
         setVpipColours(prevColours => prevColours.map(
@@ -66,11 +65,6 @@ export default function VpipCalculator({computedColorScheme}: {computedColorSche
             : vpipCard)
         ));
     }
-
-
-    // need some way of having state cycle through the 3 values...
-    // then have a const/function pair that maps values to coral, gold, lightgreen
-    // and pass the output of this to vpipColour in the component call
 
     let vpipCards = [];
     let id = 0;
