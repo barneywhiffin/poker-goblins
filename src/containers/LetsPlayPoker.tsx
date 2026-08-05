@@ -2,7 +2,7 @@ import { useState } from 'react';
 import { Button } from '@mantine/core';
 import { PlayIcon, StopIcon, FastForwardIcon, SkipForwardIcon } from '@phosphor-icons/react';
 import type { Round } from '../types/TableProps';
-import cardValues from '../utils/getCardValues';
+import { cardValues } from '../utils/getCardValues';
 import shuffleDeck from '../utils/shuffle';
 import handCalc from '../utils/handCalc';
 import TableCard from '../components/card/Card';
@@ -94,7 +94,7 @@ export default function LetsPlayPoker() {
     const winners = getWinners(handsArray);
 
     return (
-        <div style={{margin: '40px 0 0 0'}}>
+        <div style={{margin: '20px 0 0 0'}}>
             <Table round={round} cards={cards}/>
             <div style={{display: 'flex', height: '200px', marginLeft: '320px'}}>
                 <Button.Group orientation="vertical" style={{margin: '20px 0 0 265px', height: 250, width: 250}}>

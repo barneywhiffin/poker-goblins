@@ -1,0 +1,8 @@
+.vpip-card {
+    display: inline;
+    border-radius: 10px;
+    border: 1px solid;
+    text-align: center;
+    align-content: center;
+    letter-spacing: -0.1em;
+}
