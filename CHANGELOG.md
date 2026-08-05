@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.0.7](https://github.com/barneywhiffin/poker-goblins/compare/v0.0.6...v0.0.7) (2026-08-05)
+
+
+### Features
+
+* add colour changing of cards, stored in state ([fdf86eb](https://github.com/barneywhiffin/poker-goblins/commit/fdf86ebf6bc70d275e8671be6250c17165fa913d))
+* create initial grid values ([44115ca](https://github.com/barneywhiffin/poker-goblins/commit/44115ca7088dac038c467a145e7027078a9ecba8))
+* fill all grid values correctly ([0056525](https://github.com/barneywhiffin/poker-goblins/commit/00565257263e2fda827644dd26a472728570c840))
+* initialise vpip calc grid ([5739689](https://github.com/barneywhiffin/poker-goblins/commit/57396894d03528d58b930897da4a610f92d08954))
+
 ### [0.0.6](https://github.com/barneywhiffin/poker-goblins/compare/v0.0.5...v0.0.6) (2026-08-03)
 
 
