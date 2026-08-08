@@ -6,7 +6,9 @@ settings:
 
 importers:
 
-  .:
+  .: {}
+
+  client:
     dependencies:
       '@mantine/core':
         specifier: ^9.5.0
