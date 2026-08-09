@@ -1,8 +1,14 @@
 {
   "name": "poker-goblins",
   "private": true,
+  "version": "0.0.7",
   "scripts": {
     "client": "pnpm --dir client dev",
-    "server": "pnpm --dir server dev"
+    "server": "pnpm --dir server start",
+    "release": "standard-version",
+    "publish": "git push --follow-tags origin main"
+  },
+  "devDependencies": {
+    "standard-version": "^9.5.0"
   }
 }
