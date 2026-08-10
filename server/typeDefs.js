@@ -1,11 +1,12 @@
 export const typeDefs = `
-    type Query {
-        hello: String
-    }
     type User {
         id: ID
         username: String
         elo: Int
+    }
+    type Query {
+        getUser(name: String, elo: Int): User
+        getAllUsers: [User]
     }
     input UserInput {
         username: String

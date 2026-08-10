@@ -25,8 +25,15 @@ async function startServer() {
     app.use('/graphql', expressMiddleware(apolloServer));
 
     app.use((req, res) => {
-        res.send('Hello from express apollo server!')
+        res.send('Hello from new express apollo server!')
     })
+
+    // TODO: import cors, and uncomment below, for production server for frontend
+    // (rather than vite proxy for development)
+    // app.use(cors({
+    //     origin: 'https://pokergoblins.com'
+    // }))
+    // and obvs needs to target actual api backend rather than localhost:4000
 
     await mongoose.connect(process.env.MONGODB_URI);
 

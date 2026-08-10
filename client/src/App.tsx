@@ -7,6 +7,7 @@ import VpipCalculator from './containers/vpip-calculator/VpipCalculator';
 import { createTheme, MantineProvider, ColorSchemeScript, AppShell, Burger, useComputedColorScheme, Button } from '@mantine/core';
 import { useDisclosure } from '@mantine/hooks';
 import { PokerChipIcon, GithubLogoIcon } from '@phosphor-icons/react';
+import UserList from './components/UserList';
 
 const theme = createTheme({
     fontFamily: '"Courier Prime", "Cutive Mono", "American Typewriter", "Courier New", monospace',
@@ -23,7 +24,7 @@ function AppContent() {
 	
 	const [opened, { close, toggle }] = useDisclosure();
 	
-	const [activeTab, setActiveTab] = useState('vpip');
+	const [activeTab, setActiveTab] = useState('settings');
 	
 	// read only hook for check of current colour scheme: useComputedColorScheme
 	const computedColorScheme = useComputedColorScheme('light');
@@ -37,7 +38,13 @@ function AppContent() {
 			case 'vpip':
 				return <VpipCalculator computedColorScheme={computedColorScheme}/>;
 			case 'settings':
-				return <p>settings</p>;
+				return (
+					<>
+						<UserList />
+						<p>settings</p>
+					</>
+				);
+					
 		}
 	}
 

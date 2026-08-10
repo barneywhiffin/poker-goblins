@@ -2,9 +2,16 @@ import { User } from './models/User.model.js'
 
 export const resolvers = {
     Query: {
-        hello: () => {
-            return 'Hello world!';
+        getUser: (_, args) => {
+            return {
+                name: args.name,
+                elo: args.elo
+            };
         },
+        getAllUsers: async () => {
+            const users = await User.find();
+            return users;
+        }
     },
     Mutation: {
         createUser: async (parent, args, context, info) => {
