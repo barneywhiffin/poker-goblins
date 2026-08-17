@@ -1,7 +1,7 @@
 {
   "name": "poker-goblins",
   "private": true,
-  "version": "0.0.7",
+  "version": "0.0.8",
   "scripts": {
     "client": "pnpm --dir client dev",
     "server": "pnpm --dir server start",

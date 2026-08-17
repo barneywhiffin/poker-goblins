@@ -2,6 +2,15 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.0.8](https://github.com/barneywhiffin/poker-goblins/compare/v0.0.7...v0.0.8) (2026-08-17)
+
+
+### Features
+
+* add integration with frontend via apollo client ([a1201c0](https://github.com/barneywhiffin/poker-goblins/commit/a1201c0887507bb8759648f96c0b2224896c1be9))
+* add user type which can write to mongodb atlas ([9c26e6b](https://github.com/barneywhiffin/poker-goblins/commit/9c26e6bf0bc1cde3b0cef9d9cf790267d4d20e2a))
+* initialise apollo graphql mongodb connection ([f8d4bee](https://github.com/barneywhiffin/poker-goblins/commit/f8d4bee7d77f14fdfca59bf8508e770fb1ae38ae))
+
 ### [0.0.7](https://github.com/barneywhiffin/poker-goblins/compare/v0.0.6...v0.0.7) (2026-08-05)
 
 
